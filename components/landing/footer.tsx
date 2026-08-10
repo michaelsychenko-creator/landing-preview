@@ -25,7 +25,7 @@ function FacebookIcon({ className }: { className?: string }) {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-navy/15 bg-primary text-navy">
+    <footer className="border-t border-white/10 bg-navy text-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div className="space-y-5">
@@ -36,19 +36,22 @@ export function SiteFooter() {
               height={40}
               className="h-10 w-auto rounded-md sm:h-12"
             />
-            <p className="max-w-sm text-sm leading-relaxed text-navy/80">
+            <p className="max-w-sm text-sm leading-relaxed text-white/70">
               A network of premium apartment hotels in Valencia. Your home away
               from home — with all the comforts and no compromises.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm">
-              <span className="text-navy/70">EN / ES</span>
-              <a href="#" className="inline-flex items-center gap-1.5 text-navy/85 hover:text-navy">
+              <span className="text-white/60">EN / ES</span>
+              <a
+                href="#"
+                className="inline-flex items-center gap-1.5 text-white/85 transition-colors hover:text-primary"
+              >
                 <MessageCircle className="size-4" />
                 Chat with us
               </a>
               <a
                 href={`tel:${phoneDisplay.replace(/\s/g, "")}`}
-                className="inline-flex items-center gap-1.5 text-navy/85 hover:text-navy"
+                className="inline-flex items-center gap-1.5 text-white/85 transition-colors hover:text-primary"
               >
                 <Phone className="size-4" />
                 {phoneDisplay}
@@ -57,7 +60,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="mb-4 text-sm font-semibold tracking-wide text-navy/55 uppercase">
+            <p className="mb-4 text-sm font-semibold tracking-wide text-primary uppercase">
               Explore
             </p>
             <ul className="space-y-2.5">
@@ -65,7 +68,7 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-navy/80 transition-colors hover:text-navy"
+                    className="text-sm text-white/75 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -75,13 +78,13 @@ export function SiteFooter() {
           </div>
 
           <div className="space-y-5">
-            <p className="mb-4 text-sm font-semibold tracking-wide text-navy/55 uppercase">
+            <p className="mb-4 text-sm font-semibold tracking-wide text-primary uppercase">
               Book & follow
             </p>
             <Button
               asChild
               size="lg"
-              className="h-12 gap-2 bg-navy px-6 text-base text-white hover:bg-navy-muted"
+              className="h-12 gap-2 bg-primary px-6 text-base text-white hover:bg-primary/90"
             >
               <a href="#booking">Book Now</a>
             </Button>
@@ -89,21 +92,21 @@ export function SiteFooter() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="inline-flex size-9 items-center justify-center rounded-full bg-navy/10 text-navy transition-colors hover:bg-navy hover:text-white"
+                className="inline-flex size-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary hover:text-white"
               >
                 <InstagramIcon className="size-4" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="inline-flex size-9 items-center justify-center rounded-full bg-navy/10 text-navy transition-colors hover:bg-navy hover:text-white"
+                className="inline-flex size-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary hover:text-white"
               >
                 <FacebookIcon className="size-4" />
               </a>
               <a
                 href="#"
                 aria-label="X"
-                className="inline-flex size-9 items-center justify-center rounded-full bg-navy/10 text-navy transition-colors hover:bg-navy hover:text-white"
+                className="inline-flex size-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary hover:text-white"
               >
                 <span className="text-xs font-bold">X</span>
               </a>
@@ -111,7 +114,10 @@ export function SiteFooter() {
             <ul className="flex flex-wrap gap-x-4 gap-y-2">
               {footerLegal.map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-xs text-navy/60 hover:text-navy">
+                  <a
+                    href="#"
+                    className="text-xs text-white/50 transition-colors hover:text-white"
+                  >
                     {item}
                   </a>
                 </li>
@@ -120,10 +126,10 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <Separator className="my-8 bg-navy/15" />
+        <Separator className="my-8 bg-white/10" />
 
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="text-xs text-navy/55">
+          <p className="text-xs text-white/50">
             © 2026, VLC Apart. All rights reserved
           </p>
           <Image
@@ -131,7 +137,7 @@ export function SiteFooter() {
             alt="Accepted payment methods"
             width={280}
             height={20}
-            className="h-4 w-auto opacity-80"
+            className="h-4 w-auto opacity-80 brightness-110"
           />
         </div>
       </div>
