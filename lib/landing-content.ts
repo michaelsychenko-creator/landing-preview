@@ -3,7 +3,7 @@ export const navLinks = [
   {label: "About Us", href: "/about-us"},
   {label: "Hotels", href: "/hotels"},
   {label: "Offers", href: "#offers"},
-  {label: "Gallery", href: "#"},
+  {label: "Gallery", href: "/gallery"},
   {label: "Contacts", href: "/contacts"},
   {label: "FAQ", href: "/faq"},
 ] as const;
@@ -374,6 +374,169 @@ export function contactMapsSearchUrl(property: ContactProperty) {
 export function contactMapsDirectionsUrl(property: ContactProperty) {
   return `https://www.google.com/maps/dir/?api=1&destination=${property.mapsQuery}`;
 }
+
+export const galleryHero = {
+  eyebrow: "Our spaces",
+  title: "Gallery",
+  body: "Explore our apartments, common areas and the neighbourhoods that make each VLC Apart property unique. Every space is designed with comfort in mind — take a look before you book",
+} as const;
+
+export const galleryFilters = [
+  {value: "all", label: "All"},
+  {value: "gayano", label: "Gayano"},
+  {value: "cortina", label: "Cortina"},
+  {value: "encarna", label: "Encarna"},
+] as const;
+
+export const galleryPhotos = [
+  {
+    id: "gayano-living",
+    src: "/images/2-1.webp",
+    alt: "Bright living space at VLC Apart Gayano",
+    property: "gayano",
+    propertyLabel: "VLC Apart Gayano",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "gayano-family",
+    src: "/images/1-2.png",
+    alt: "Family-friendly apartment interior at VLC Apart Gayano",
+    property: "gayano",
+    propertyLabel: "VLC Apart Gayano",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "gayano-group",
+    src: "/images/2-5.png",
+    alt: "Open living area for groups at VLC Apart Gayano",
+    property: "gayano",
+    propertyLabel: "VLC Apart Gayano",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "gayano-common",
+    src: "/images/Accommodating-large-groups-together.webp",
+    alt: "Shared space designed for large groups at VLC Apart Gayano",
+    property: "gayano",
+    propertyLabel: "VLC Apart Gayano",
+    category: "common",
+    categoryLabel: "Common area",
+  },
+  {
+    id: "gayano-neighbourhood",
+    src: "/images/bcg_1.webp",
+    alt: "Neighbourhood around VLC Apart Gayano in Rascanya",
+    property: "gayano",
+    propertyLabel: "VLC Apart Gayano",
+    category: "neighbourhood",
+    categoryLabel: "Neighbourhood",
+  },
+  {
+    id: "cortina-exterior",
+    src: "/images/2-2.png",
+    alt: "VLC Apart Cortina apartment building and surroundings",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "neighbourhood",
+    categoryLabel: "Neighbourhood",
+  },
+  {
+    id: "cortina-interior",
+    src: "/images/4-2.webp",
+    alt: "Apartment interior at VLC Apart Cortina",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "cortina-stay",
+    src: "/images/3-1.webp",
+    alt: "Comfortable stay details at VLC Apart Cortina",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "cortina-long-stay",
+    src: "/images/3-4.png",
+    alt: "Long-stay apartment layout at VLC Apart Cortina",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "cortina-location",
+    src: "/images/Location.webp",
+    alt: "Benicalap neighbourhood near VLC Apart Cortina",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "neighbourhood",
+    categoryLabel: "Neighbourhood",
+  },
+  {
+    id: "cortina-common",
+    src: "/images/bcg_2.webp",
+    alt: "Common areas and surroundings at VLC Apart Cortina",
+    property: "cortina",
+    propertyLabel: "VLC Apart Cortina",
+    category: "common",
+    categoryLabel: "Common area",
+  },
+  {
+    id: "encarna-building",
+    src: "/images/2-3.webp",
+    alt: "VLC Apart Encarna building in Benicalap",
+    property: "encarna",
+    propertyLabel: "VLC Apart Encarna",
+    category: "neighbourhood",
+    categoryLabel: "Neighbourhood",
+  },
+  {
+    id: "encarna-couple",
+    src: "/images/4-4.png",
+    alt: "Quiet apartment interior at VLC Apart Encarna",
+    property: "encarna",
+    propertyLabel: "VLC Apart Encarna",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "encarna-stay",
+    src: "/images/3-2.webp",
+    alt: "Furnished apartment at VLC Apart Encarna",
+    property: "encarna",
+    propertyLabel: "VLC Apart Encarna",
+    category: "apartment",
+    categoryLabel: "Apartment",
+  },
+  {
+    id: "encarna-street",
+    src: "/images/background_new.png",
+    alt: "Residential streets around VLC Apart Encarna",
+    property: "encarna",
+    propertyLabel: "VLC Apart Encarna",
+    category: "neighbourhood",
+    categoryLabel: "Neighbourhood",
+  },
+  {
+    id: "encarna-common",
+    src: "/images/4-1.webp",
+    alt: "Shared interiors at VLC Apart Encarna",
+    property: "encarna",
+    propertyLabel: "VLC Apart Encarna",
+    category: "common",
+    categoryLabel: "Common area",
+  },
+] as const;
+
+export type GalleryPhoto = (typeof galleryPhotos)[number];
+export type GalleryFilter = (typeof galleryFilters)[number]["value"];
 
 export const faqHero = {
   eyebrow: "Frequently Asked Questions",
