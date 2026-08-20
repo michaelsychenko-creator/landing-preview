@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -45,10 +46,10 @@ export function Hero() {
               size="lg"
               className="h-11 gap-2 bg-primary px-5 text-white hover:bg-primary/90"
             >
-              <a href="#">
+              <Link href="/hotels">
                 View Hotels
                 <ArrowRight className="size-4" />
-              </a>
+              </Link>
             </Button>
             <Button
               asChild

@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "Main", href: "/" },
   { label: "About Us", href: "#" },
-  { label: "Hotels", href: "#" },
+  { label: "Hotels", href: "/hotels" },
   { label: "Offers", href: "#offers" },
   { label: "Gallery", href: "#" },
   { label: "Contacts", href: "#" },
@@ -63,35 +63,66 @@ export const amenities = [
   },
 ] as const;
 
+const hotelGallery = [
+  "/images/2-1.webp",
+  "/images/2-2.png",
+  "/images/2-3.webp",
+] as const;
+
 export const hotels = [
   {
     name: "VLC Apart Gayano",
     location: "Valencia, Rascanya · Torrefiel",
     description:
       "A cosy stay in a lively residential neighbourhood with good tram and bus connections and a genuine local feel",
+    longDescription:
+      "A cosy stay in a lively, authentic neighbourhood north of Valencia's city centre. Apartments with capacity for up to 12 guests, good tram and bus connections make it easy to explore the city, while local markets, cafés and parks are right on your doorstep. Perfect for families, groups and anyone who wants to experience real Valencian life",
     tags: "City Connections · Residential Feel · Local Atmosphere",
     price: "€99",
     image: "/images/2-1.webp",
+    capacity: 12,
+    gallery: hotelGallery,
   },
   {
     name: "VLC Apart Cortina",
     location: "Valencia, Benicalap",
     description:
       "Quiet family-friendly district with tram line nearby and one of Valencia's largest parks on the doorstep",
+    longDescription:
+      "Set in a quiet, family-friendly district with tram line 4 just minutes away. Apartments with capacity for up to 8 guests, with one of Valencia's largest green spaces — Parque de Benicalap — on the doorstep, making it ideal for families and longer stays. A peaceful base with easy access to the city centre and the beach",
     tags: "Tram Access · Park Proximity · Family-Friendly Area",
     price: "€99",
     image: "/images/2-2.png",
+    capacity: 8,
+    gallery: hotelGallery,
   },
   {
     name: "VLC Apart Encarna",
     location: "Valencia, Benicalap",
     description:
       "Authentic residential streets, local cafés and easy bike or tram access to Valencia's landmarks — without the tourist bustle",
+    longDescription:
+      "Authentic residential streets, local cafés and a calm atmosphere away from the tourist crowds. Apartments with capacity for up to 4 guests, easy bike or tram access to Valencia's landmarks makes this a great choice for those who want comfort and a genuine local experience — without the bustle",
     tags: "Quiet Streets · Authentic Neighbourhood · Bike-Friendly",
     price: "€99",
     image: "/images/2-3.webp",
+    capacity: 4,
+    gallery: hotelGallery,
   },
 ] as const;
+
+export const hotelsHero = {
+  eyebrow: "Our hotels",
+  titleLead: "Find Your Perfect Stay",
+  titleAccent: "in Valencia",
+  body: "Three aparthotels in the heart of Valencia — each in its own neighbourhood, each with its own character. Whether you're travelling with family, a group of friends or a remote team, we have the right space for your stay. All apartments are fully equipped, spacious and designed for comfort — from a weekend getaway to a long-term stay.",
+  image: "/images/4-2.webp",
+  cta: "About Us",
+  stats: [
+    { value: "12", unit: "PPL", label: "max capacity" },
+    { value: "10%+", unit: "", label: "Discount on Direct Booking" },
+  ],
+} as const;
 
 export const advantagePoints = [
   {

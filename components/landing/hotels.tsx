@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -92,10 +93,10 @@ export function Hotels() {
             className="border-navy/20 text-navy"
             size="lg"
           >
-            <a href="#">
+            <Link href="/hotels">
               View All Hotels
               <ArrowRight className="size-4" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
