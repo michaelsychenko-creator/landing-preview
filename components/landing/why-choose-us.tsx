@@ -91,7 +91,7 @@ export function WhyChooseUs() {
               variant="outline"
               className="h-12 border-navy/20 px-6 text-base text-navy"
             >
-              <a href="#">About Us</a>
+              <a href="/about-us">About Us</a>
             </Button>
           </div>
         </div>
@@ -182,7 +182,7 @@ export function WhyChooseUs() {
             variant="outline"
             className="h-12 border-navy/20 px-6 text-base text-navy"
           >
-            <a href="#">About Us</a>
+            <a href="/about-us">About Us</a>
           </Button>
         </div>
       </div>

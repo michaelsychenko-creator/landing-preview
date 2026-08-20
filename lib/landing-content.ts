@@ -1,6 +1,6 @@
 export const navLinks = [
   {label: "Main", href: "/"},
-  {label: "About Us", href: "#"},
+  {label: "About Us", href: "/about-us"},
   {label: "Hotels", href: "/hotels"},
   {label: "Offers", href: "#offers"},
   {label: "Gallery", href: "#"},
@@ -111,6 +111,7 @@ export const hotelsHero = {
   body: "Three aparthotels in the heart of Valencia — each in its own neighbourhood, each with its own character. Whether you're travelling with family, a group of friends or a remote team, we have the right space for your stay. All apartments are fully equipped, spacious and designed for comfort — from a weekend getaway to a long-term stay.",
   image: "/images/4-2.webp",
   cta: "About Us",
+  ctaHref: "/about-us",
   stats: [
     {value: "12", unit: "PPL", label: "max capacity"},
     {value: "10%+", unit: "", label: "Discount on Direct Booking"},
@@ -201,5 +202,108 @@ export const reviews = [
     meta: "London, UK · April 2025",
   },
 ] as const;
+
+export const aboutHero = {
+  eyebrow: "Our Story",
+  title: "About Us",
+  paragraphs: [
+    "We Are VLC Apart. Three aparthotels in Valencia. Three neighbourhoods. One idea — to give every guest a place that feels like home, not just a room for the night.",
+    "VLC Apart was created for those who want more than a standard hotel stay: space to live, cook, work and explore — at their own pace, in a real Valencian neighbourhood",
+  ],
+  image: "/images/4-2.webp",
+  cta: "Our hotels",
+  ctaHref: "/hotels",
+  stats: [
+    {value: "3", label: "Locations in Valencia"},
+    {value: "5.0", label: "Average Rating", rating: true},
+  ],
+} as const;
+
+export const aboutReasons = [
+  {
+    title: "Fully Equipped Apartments",
+    description:
+      "Every apartment comes with a complete Kitchen, Dishwasher, Smart TV and everything you need for a comfortable stay — whether you're staying for a few nights or several months",
+    icon: "/images/1-1.png",
+  },
+  {
+    title: "Three Locations in Valencia",
+    description:
+      "Gayano, Cortina and Encarna — each in a different neighbourhood, each with its own character. Choose the one that fits your stay. Any of them are close to the center and the beach by tram or bike.",
+    icon: "/images/2-4.png",
+  },
+  {
+    title: "Direct Booking Advantage",
+    description:
+      "Book directly on our website and get the best available rate. No hidden fees, no middlemen",
+    icon: "/images/3-3.png",
+  },
+  {
+    title: "For Any Group Size",
+    description:
+      "From a solo traveller to a group of 12 — we have the right apartment for every size and every need",
+    icon: "/images/4-3.png",
+  },
+  {
+    title: "Local at Heart",
+    description:
+      "Our aparthotels are in residential neighbourhoods where real Valencia happens — local markets, corner cafés and tram connections to everywhere",
+    icon: "/images/5-1.png",
+  },
+  {
+    title: "Everything On-Site",
+    description:
+      "From a fully equipped kitchen and laundry room to a fitness room, Lobby bar-Market and lockers — everything you need is right where you stay",
+    icon: "/images/6-1.png",
+  },
+] as const;
+
+export const aboutValues = {
+  eyebrow: "What We Stand For",
+  title: "Comfort, Honesty, Local Experience",
+  paragraphs: [
+    "We believe that where you stay shapes how you experience a city. That's why every VLC Apart property is designed to offer genuine comfort in a genuine neighbourhood — not a polished tourist bubble, but a real place where you can settle in and feel at ease.",
+    "We value transparency in pricing, quality in every detail and warmth in every interaction. Our goal is simple: to make your stay in Valencia feel effortless and memorable",
+  ],
+  gallery: hotelGallery,
+} as const;
+
+export const aboutHotelsHeading = {
+  eyebrow: "Our hotels",
+  title: "Three Aparthotels, One Standard of Quality",
+} as const;
+
+export const aboutWelcome = {
+  eyebrow: "Who We Welcome",
+  title: "A Place for Everyone",
+  rating: "5.0",
+  ratingNote: "based on 248 reviews",
+  audiences: [
+    {
+      title: "Families",
+      description:
+        "Spacious apartments with fully equipped kitchens make family stays easy and affordable. Room for everyone — from studio to 12-guest apartments",
+      image: "/images/1-2.png",
+    },
+    {
+      title: "Groups & Teams",
+      description:
+        "Travelling with a large group or a remote team? Our larger apartments sleep up to 12 guests, with all the space you need to work, relax and spend time together",
+      image: "/images/2-5.png",
+    },
+    {
+      title: "Long-stay Guests",
+      description:
+        "Planning to stay for a month or more? We offer special long-stay rates and all the comforts of home — so you can focus on life in Valencia, not logistics",
+      image: "/images/3-4.png",
+    },
+    {
+      title: "Solo Travellers & Couples",
+      description:
+        "A quiet, well-equipped base in a real neighbourhood — everything you need, nothing you don't",
+      image: "/images/4-4.png",
+    },
+  ],
+} as const;
 
 export const footerLegal = ["Privacy", "Terms & conditions", "Cookies"] as const;

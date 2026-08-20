@@ -56,7 +56,7 @@ export function Hero() {
               variant="outline"
               className="h-11 border-white/40 bg-white/10 px-5 text-white hover:bg-white/20 hover:text-white"
             >
-              <a href="#">About Us</a>
+              <Link href="/about-us">About Us</Link>
             </Button>
           </div>
         </div>

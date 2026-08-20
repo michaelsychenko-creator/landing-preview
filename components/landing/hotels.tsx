@@ -9,14 +9,20 @@ import {Separator} from "@/components/ui/separator";
 import {hotels} from "@/lib/landing-content";
 import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
-export function Hotels() {
+export function Hotels({
+  eyebrow = "Our hotels",
+  title = "Find your perfect stay",
+}: {
+  eyebrow?: string;
+  title?: string;
+}) {
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="reveal-on-scroll mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-wide text-primary uppercase">Our hotels</p>
+          <p className="text-sm font-semibold tracking-wide text-primary uppercase">{eyebrow}</p>
           <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-            Find your perfect stay
+            {title}
           </h2>
         </div>
 

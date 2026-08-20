@@ -3,13 +3,21 @@
 import {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 import {Menu, MessageCircle, Phone} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {navLinks, phoneDisplay} from "@/lib/landing-content";
 import {cn} from "@/lib/utils";
 
+function isNavActive(href: string, pathname: string) {
+  if (href === "/") return pathname === "/";
+  if (href.startsWith("#")) return false;
+  return pathname === href;
+}
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
@@ -72,15 +80,22 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="rounded-md px-3 py-2 text-base font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const active = isNavActive(link.href, pathname);
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-white/10 hover:text-primary",
+                  active ? "text-primary" : "text-white/85",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -132,16 +147,23 @@ export function SiteHeader() {
               </SheetTitle>
             </SheetHeader>
             <nav className="mt-6 flex flex-col gap-1 px-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-lg font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const active = isNavActive(link.href, pathname);
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "rounded-lg px-3 py-2.5 text-lg font-medium transition-colors hover:bg-white/10 hover:text-primary",
+                      active ? "bg-white/10 text-primary" : "text-white/90",
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
             <div className="mt-8 flex flex-col gap-3 border-t border-white/15 px-4 pt-6">
               <span className="text-base font-medium text-white/65">EN / ES</span>
