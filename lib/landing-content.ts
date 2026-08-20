@@ -5,7 +5,7 @@ export const navLinks = [
   {label: "Offers", href: "#offers"},
   {label: "Gallery", href: "#"},
   {label: "Contacts", href: "/contacts"},
-  {label: "FAQ", href: "#"},
+  {label: "FAQ", href: "/faq"},
 ] as const;
 
 export const phoneDisplay = "+ 34 960 000 001";
@@ -373,4 +373,100 @@ export function contactMapsSearchUrl(property: ContactProperty) {
 
 export function contactMapsDirectionsUrl(property: ContactProperty) {
   return `https://www.google.com/maps/dir/?api=1&destination=${property.mapsQuery}`;
+}
+
+export const faqHero = {
+  eyebrow: "Frequently Asked Questions",
+  title: "FAQ",
+} as const;
+
+export const faqItems = [
+  {
+    id: "check-in",
+    n: 1,
+    question: "What is the check-in and check-out time?",
+    answer:
+      "Check-in is from 16:00 and check-out is until 12:00. Early check-in or late check-out is available on request and may be subject to an additional charge.",
+  },
+  {
+    id: "self-check-in",
+    n: 2,
+    question: "Is self check-in available?",
+    answer:
+      "Yes. Self check-in is available anytime at all three properties. At VLC Apart Cortina, reception is staffed from 8:00 to 24:00 — self check-in is available from 24:00 till 8:00. At VLC Apart Gayano and VLC Apart Encarna, reception is available 24 hours a day.",
+  },
+  {
+    id: "parking",
+    n: 3,
+    question: "Is parking available?",
+    answer:
+      "Parking is available nearby. Please contact us in advance for more details on location and availability.",
+  },
+  {
+    id: "pets",
+    n: 4,
+    question: "Are pets allowed?",
+    answer:
+      "Yes, we are pet friendly. Up to 2 pets per apartment are welcome, with a maximum weight of 12 kg each.",
+  },
+  {
+    id: "wifi",
+    n: 5,
+    question: "Is Wi-Fi included?",
+    answer: "Yes, high-speed Wi-Fi is included in all apartments at no extra charge.",
+  },
+  {
+    id: "kitchen",
+    n: 6,
+    question: "Do the apartments have a kitchen?",
+    answer:
+      "Yes, all apartments come with a fully equipped kitchen including a fridge, ceramic hob, dishwasher, electric kettle, coffee machine, microwave and all necessary kitchenware and dishes.",
+  },
+  {
+    id: "minimum-stay",
+    n: 7,
+    question: "Is there a minimum stay requirement?",
+    answer:
+      "There is no minimum stay requirement for standard bookings. For long-term stays of 30 nights or more, special rates apply — contact us for details.",
+  },
+  {
+    id: "direct-booking",
+    n: 8,
+    question: "Can I book directly on the website?",
+    answer:
+      "Yes, and we recommend it. Booking directly on our website guarantees the best available rate with no additional fees or commissions.",
+  },
+  {
+    id: "cancellation",
+    n: 9,
+    question: "What is your cancellation policy?",
+    answer:
+      "For single apartment bookings, free cancellation is available up to 72 hours before arrival. For group bookings of more than one apartment, free cancellation applies up to 7 days before arrival. Cancellations made after these deadlines will be charged 50% of the total booking amount.",
+  },
+  {
+    id: "capacity",
+    n: 10,
+    question: "How many guests can your largest apartment accommodate?",
+    answer:
+      "Our largest apartment — the Loft — can accommodate up to 12 guests, making it ideal for big group stays or team trips.",
+  },
+] as const;
+
+export type FaqItem = (typeof faqItems)[number];
+
+export const faqColumns = [faqItems.slice(0, 5), faqItems.slice(5)] as const;
+
+export function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }
