@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {hotelOptions} from "@/lib/landing-content";
+import {openDistributorBooking} from "@/lib/mews";
 import {cn} from "@/lib/utils";
 
 const controlClass =
@@ -93,11 +94,17 @@ export function BookingBar() {
       return;
     }
 
-    const hotelLabel = hotelOptions.find((h) => h.value === hotel)?.label ?? hotel;
-
-    toast.success("Booking details ready", {
-      description: `${hotelLabel} · ${format(range.from, "MMM d")}–${format(range.to, "MMM d")} · ${adults} adults, ${children} children`,
+    const opened = openDistributorBooking({
+      start: range.from,
+      end: range.to,
+      adults: Number(adults) || 2,
+      children: Number(children) || 0,
     });
+
+    if (!opened) {
+      toast.error("Booking Engine is still loading...");
+      return;
+    }
 
     onOpenChange(false);
   }
