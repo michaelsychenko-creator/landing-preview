@@ -4,7 +4,7 @@ export const navLinks = [
   {label: "Hotels", href: "/hotels"},
   {label: "Offers", href: "#offers"},
   {label: "Gallery", href: "#"},
-  {label: "Contacts", href: "#"},
+  {label: "Contacts", href: "/contacts"},
   {label: "FAQ", href: "#"},
 ] as const;
 
@@ -307,3 +307,70 @@ export const aboutWelcome = {
 } as const;
 
 export const footerLegal = ["Privacy", "Terms & conditions", "Cookies"] as const;
+
+export const contactHero = {
+  eyebrow: "Get in Touch",
+  title: "Contact Us",
+} as const;
+
+export const contactProperties = [
+  {
+    id: "gayano",
+    shortName: "Gayano",
+    name: "VLC Apart Gayano",
+    receptionLabel: "Reservation/Recepción",
+    phone: "+34 960 000 001",
+    phoneHref: "tel:+34960000001",
+    email: "Gayano@vlcapart.com",
+    addressLines: ["Carrer de Gayano Lluch, 4", "Rascanya · Torrefiel", "Valencia, 46025, Spain"],
+    neighbourhood: "Rascanya · Torrefiel",
+    lat: 39.491135,
+    lng: -0.380457,
+    image: "/images/2-1.webp",
+    mapsQuery: "39.491135,-0.380457",
+  },
+  {
+    id: "cortina",
+    shortName: "Cortina",
+    name: "VLC Apart Cortina",
+    receptionLabel: "Reservation/Recepción",
+    phone: "+34 960 000 001",
+    phoneHref: "tel:+34960000001",
+    email: "Cortina@vlcapart.com",
+    addressLines: ["C. de Carles Cortina, 5", "Benicalap", "Valencia, 46025, Spain"],
+    neighbourhood: "Benicalap",
+    lat: 39.499413,
+    lng: -0.390065,
+    image: "/images/2-2.png",
+    mapsQuery: "39.499413,-0.390065",
+  },
+  {
+    id: "encarna",
+    shortName: "Encarna",
+    name: "VLC Apart Encarna",
+    receptionLabel: "Reservation/Recepción",
+    phone: "+34 960 000 001",
+    phoneHref: "tel:+34960000001",
+    email: "Encarna@vlcapart.com",
+    addressLines: ["Carrer d'Encarna Albarracín, 6", "Benicalap", "Valencia, 46025, Spain"],
+    neighbourhood: "Benicalap",
+    lat: 39.497311,
+    lng: -0.389632,
+    image: "/images/2-3.webp",
+    mapsQuery: "39.497311,-0.389632",
+  },
+] as const;
+
+export type ContactProperty = (typeof contactProperties)[number];
+
+export function contactMapsEmbedUrl(property: ContactProperty) {
+  return `https://maps.google.com/maps?q=${property.mapsQuery}&z=16&hl=en&output=embed`;
+}
+
+export function contactMapsSearchUrl(property: ContactProperty) {
+  return `https://www.google.com/maps/search/?api=1&query=${property.mapsQuery}`;
+}
+
+export function contactMapsDirectionsUrl(property: ContactProperty) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${property.mapsQuery}`;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {motion} from "framer-motion";
 import {ArrowRight} from "lucide-react";
 import {Button} from "@/components/ui/button";
@@ -32,10 +33,10 @@ export function Cta() {
               size="lg"
               className="h-11 gap-2 bg-primary px-5 text-white hover:bg-primary/90"
             >
-              <a href="#">
+              <Link href="/hotels">
                 Find an Apartment
-                <ArrowRight className="size-4" />
-              </a>
+                <ArrowRight data-icon="inline-end" />
+              </Link>
             </Button>
             <Button
               asChild
@@ -43,7 +44,7 @@ export function Cta() {
               variant="outline"
               className="h-11 border-white/40 bg-white/10 px-5 text-white hover:bg-white/20 hover:text-white"
             >
-              <a href="#">Contact Us</a>
+              <Link href="/contacts">Contact Us</Link>
             </Button>
           </div>
         </motion.div>
