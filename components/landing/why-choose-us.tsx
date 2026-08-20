@@ -1,15 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { amenities } from "@/lib/landing-content";
-import {
-  itemVariants,
-  listVariants,
-  revealViewport,
-} from "@/lib/landing-motion";
+import {motion} from "framer-motion";
+import {ArrowRight} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {amenities} from "@/lib/landing-content";
+import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
 const spring = {
   type: "spring" as const,
@@ -22,35 +18,33 @@ const cardHover = {
   rest: {
     y: 0,
     borderColor: "rgba(23, 42, 73, 0.07)",
-    boxShadow:
-      "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0)",
+    boxShadow: "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0)",
   },
   hover: {
     y: -6,
     borderColor: "rgba(255, 145, 77, 0.35)",
-    boxShadow:
-      "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0.45)",
+    boxShadow: "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0.45)",
   },
 };
 
 const accentHover = {
-  rest: { opacity: 0 },
-  hover: { opacity: 1 },
+  rest: {opacity: 0},
+  hover: {opacity: 1},
 };
 
 const iconHover = {
-  rest: { scale: 1 },
-  hover: { scale: 1.04 },
+  rest: {scale: 1},
+  hover: {scale: 1.04},
 };
 
 const indexHover = {
-  rest: { color: "rgba(23, 42, 73, 0.25)" },
-  hover: { color: "rgba(255, 145, 77, 0.7)" },
+  rest: {color: "rgba(23, 42, 73, 0.25)"},
+  hover: {color: "rgba(255, 145, 77, 0.7)"},
 };
 
 const ruleHover = {
-  rest: { width: 32, backgroundColor: "rgba(23, 42, 73, 0.1)" },
-  hover: { width: 48, backgroundColor: "rgba(255, 145, 77, 0.6)" },
+  rest: {width: 32, backgroundColor: "rgba(23, 42, 73, 0.1)"},
+  hover: {width: 48, backgroundColor: "rgba(255, 145, 77, 0.6)"},
 };
 
 export function WhyChooseUs() {
@@ -75,8 +69,8 @@ export function WhyChooseUs() {
               More than just a hotel
             </h2>
             <p className="mt-4 text-base leading-relaxed text-navy-muted">
-              An apartment hotel combines the comfort of your own flat with
-              hotel-level service — perfect for any length of stay
+              An apartment hotel combines the comfort of your own flat with hotel-level service —
+              perfect for any length of stay
             </p>
           </div>
 
@@ -118,15 +112,15 @@ export function WhyChooseUs() {
                 variants={cardHover}
                 transition={{
                   y: spring,
-                  borderColor: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-                  boxShadow: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+                  borderColor: {duration: 0.4, ease: [0.22, 1, 0.36, 1]},
+                  boxShadow: {duration: 0.45, ease: [0.22, 1, 0.36, 1]},
                 }}
                 className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/90 p-6 backdrop-blur-sm"
               >
                 <motion.span
                   aria-hidden
                   variants={accentHover}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{duration: 0.35, ease: [0.22, 1, 0.36, 1]}}
                   className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
                 />
 
@@ -146,7 +140,7 @@ export function WhyChooseUs() {
                   </motion.div>
                   <motion.span
                     variants={indexHover}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{duration: 0.35, ease: [0.22, 1, 0.36, 1]}}
                     className="font-heading text-[0.7rem] font-medium tracking-[0.22em]"
                   >
                     {String(index + 1).padStart(2, "0")}

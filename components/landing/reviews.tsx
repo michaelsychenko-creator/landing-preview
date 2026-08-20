@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import {motion} from "framer-motion";
+import {Star} from "lucide-react";
 
 import {
   Carousel,
@@ -11,8 +11,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { reviews } from "@/lib/landing-content";
-import { itemVariants, revealViewport } from "@/lib/landing-motion";
+import {reviews} from "@/lib/landing-content";
+import {itemVariants, revealViewport} from "@/lib/landing-motion";
 
 export function Reviews() {
   return (
@@ -62,15 +62,9 @@ export function Reviews() {
                 >
                   <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-navy/7 bg-cream p-7">
                     <div className="flex items-start justify-between gap-3">
-                      <div
-                        className="flex items-center gap-0.5"
-                        aria-label="5 stars"
-                      >
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className="size-4 fill-primary text-primary"
-                          />
+                      <div className="flex items-center gap-0.5" aria-label="5 stars">
+                        {Array.from({length: 5}).map((_, i) => (
+                          <Star key={i} className="size-4 fill-primary text-primary" />
                         ))}
                       </div>
                       <span
@@ -96,12 +90,8 @@ export function Reviews() {
                         />
                       </div>
                       <div className="min-w-0">
-                        <p className="font-semibold tracking-tight text-navy">
-                          {review.name}
-                        </p>
-                        <p className="mt-0.5 text-xs text-navy-muted">
-                          {review.meta}
-                        </p>
+                        <p className="font-semibold tracking-tight text-navy">{review.name}</p>
+                        <p className="mt-0.5 text-xs text-navy-muted">{review.meta}</p>
                       </div>
                     </div>
                   </article>

@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { BookingBar } from "@/components/landing/booking-bar";
-import { UniqueAdvantage } from "@/components/landing/unique-advantage";
-import { Offers } from "@/components/landing/offers";
-import { Reviews } from "@/components/landing/reviews";
-import { Cta } from "@/components/landing/cta";
-import { HotelsHero } from "@/components/hotels/hero";
-import { HotelsDirectory } from "@/components/hotels/directory";
+import type {Metadata} from "next";
+import {BookingBar} from "@/components/landing/booking-bar";
+import {UniqueAdvantage} from "@/components/landing/unique-advantage";
+import {Offers} from "@/components/landing/offers";
+import {Reviews} from "@/components/landing/reviews";
+import {Cta} from "@/components/landing/cta";
+import {HotelsHero} from "@/components/hotels/hero";
+import {HotelsDirectory} from "@/components/hotels/directory";
 
 export const metadata: Metadata = {
   title: "Hotels - VLC Apart",

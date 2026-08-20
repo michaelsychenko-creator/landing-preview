@@ -1,26 +1,26 @@
-import Image from "next/image"
-import Link from "next/link"
-import { MessageCircle, Phone } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
-import { footerLegal, navLinks, phoneDisplay } from "@/lib/landing-content"
+import Image from "next/image";
+import Link from "next/link";
+import {MessageCircle, Phone} from "lucide-react";
+import {Separator} from "@/components/ui/separator";
+import {Button} from "@/components/ui/button";
+import {footerLegal, navLinks, phoneDisplay} from "@/lib/landing-content";
 
-function InstagramIcon({ className }: { className?: string }) {
+function InstagramIcon({className}: {className?: string}) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
       <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.75" />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.75" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
     </svg>
-  )
+  );
 }
 
-function FacebookIcon({ className }: { className?: string }) {
+function FacebookIcon({className}: {className?: string}) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
       <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-1.5c0-.3.2-.5.5-.5z" />
     </svg>
-  )
+  );
 }
 
 export function SiteFooter() {
@@ -37,8 +37,8 @@ export function SiteFooter() {
               className="h-10 w-auto rounded-md sm:h-12"
             />
             <p className="max-w-sm text-sm leading-relaxed text-white/70">
-              A network of premium apartment hotels in Valencia. Your home away
-              from home — with all the comforts and no compromises.
+              A network of premium apartment hotels in Valencia. Your home away from home — with all
+              the comforts and no compromises.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <span className="text-white/60">EN / ES</span>
@@ -114,10 +114,7 @@ export function SiteFooter() {
             <ul className="flex flex-wrap gap-x-4 gap-y-2">
               {footerLegal.map((item) => (
                 <li key={item}>
-                  <a
-                    href="#"
-                    className="text-xs text-white/50 transition-colors hover:text-white"
-                  >
+                  <a href="#" className="text-xs text-white/50 transition-colors hover:text-white">
                     {item}
                   </a>
                 </li>
@@ -129,9 +126,7 @@ export function SiteFooter() {
         <Separator className="my-8 bg-white/10" />
 
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="text-xs text-white/50">
-            © 2026, VLC Apart. All rights reserved
-          </p>
+          <p className="text-xs text-white/50">© 2026, VLC Apart. All rights reserved</p>
           <Image
             src="/images/pay.webp"
             alt="Accepted payment methods"
@@ -142,5 +137,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

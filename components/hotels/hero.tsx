@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { hotelsHero } from "@/lib/landing-content";
+import {Button} from "@/components/ui/button";
+import {hotelsHero} from "@/lib/landing-content";
 
 export function HotelsHero() {
   return (
@@ -22,8 +22,7 @@ export function HotelsHero() {
             {hotelsHero.eyebrow}
           </p>
           <h1 className="animate-hero-in-delay mt-3 font-heading text-4xl leading-[1.05] font-semibold tracking-tight text-navy sm:text-5xl lg:text-[3.4rem]">
-            {hotelsHero.titleLead}{" "}
-            <span className="text-primary">{hotelsHero.titleAccent}</span>
+            {hotelsHero.titleLead} <span className="text-primary">{hotelsHero.titleAccent}</span>
           </h1>
           <p className="animate-hero-in-delay-2 mt-5 text-base leading-relaxed text-navy-muted sm:text-lg">
             {hotelsHero.body}
@@ -31,10 +30,7 @@ export function HotelsHero() {
 
           <div className="animate-hero-in-delay-2 mt-8 grid grid-cols-2 overflow-hidden rounded-2xl bg-white/90 shadow-[0_3px_12px_rgba(23,42,73,0.08)]">
             {hotelsHero.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border-l-2 border-primary px-4 py-4 sm:px-5 sm:py-5"
-              >
+              <div key={stat.label} className="border-l-2 border-primary px-4 py-4 sm:px-5 sm:py-5">
                 <p className="flex items-end gap-1.5">
                   <span className="font-heading text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
                     {stat.value}

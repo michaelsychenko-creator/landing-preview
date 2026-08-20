@@ -1,15 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { advantagePoints, audienceTags } from "@/lib/landing-content";
-import {
-  itemVariants,
-  listVariants,
-  revealViewport,
-} from "@/lib/landing-motion";
+import {motion} from "framer-motion";
+import {ArrowRight} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {advantagePoints, audienceTags} from "@/lib/landing-content";
+import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
 export function UniqueAdvantage() {
   return (
@@ -39,9 +35,8 @@ export function UniqueAdvantage() {
               Accommodating large groups together
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/80">
-              We are the only place in Valencia offering apartments for up to 12
-              people in a single space — perfect for families, corporate trips and
-              tour groups
+              We are the only place in Valencia offering apartments for up to 12 people in a single
+              space — perfect for families, corporate trips and tour groups
             </p>
 
             <ul className="mt-8 space-y-5">
@@ -50,9 +45,7 @@ export function UniqueAdvantage() {
                   <span className="mt-1.5 size-2 shrink-0 rounded-full bg-primary" />
                   <div>
                     <h3 className="font-semibold text-white">{point.title}</h3>
-                    <p className="mt-1 text-sm text-white/70">
-                      {point.description}
-                    </p>
+                    <p className="mt-1 text-sm text-white/70">{point.description}</p>
                   </div>
                 </li>
               ))}
@@ -83,15 +76,10 @@ export function UniqueAdvantage() {
             <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
               <p className="text-5xl font-semibold text-primary">12</p>
               <p className="mt-1 text-lg font-medium">guests in one apartment</p>
-              <p className="mt-1 text-sm text-white/70">
-                Maximum capacity in Valencia
-              </p>
+              <p className="mt-1 text-sm text-white/70">Maximum capacity in Valencia</p>
               <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
                 {audienceTags.map((tag) => (
-                  <li
-                    key={tag}
-                    className="inline-flex items-center gap-2 text-sm"
-                  >
+                  <li key={tag} className="inline-flex items-center gap-2 text-sm">
                     <span className="size-1.5 rounded-full bg-primary" />
                     {tag}
                   </li>

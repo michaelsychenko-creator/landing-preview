@@ -1,23 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { format } from "date-fns";
-import type { DateRange } from "react-day-picker";
-import { ArrowRight, CalendarDays } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import {useEffect, useMemo, useState} from "react";
+import {format} from "date-fns";
+import type {DateRange} from "react-day-picker";
+import {ArrowRight, CalendarDays} from "lucide-react";
+import {toast} from "sonner";
+import {Button} from "@/components/ui/button";
+import {Calendar} from "@/components/ui/calendar";
+import {Sheet, SheetContent, SheetHeader, SheetTitle} from "@/components/ui/sheet";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -25,8 +16,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { hotelOptions } from "@/lib/landing-content";
-import { cn } from "@/lib/utils";
+import {hotelOptions} from "@/lib/landing-content";
+import {cn} from "@/lib/utils";
 
 const controlClass =
   "h-10 w-full min-w-0 rounded-lg border-white/20 bg-white text-sm text-navy data-[size=default]:h-10";
@@ -87,11 +78,7 @@ export function BookingBar() {
   function onOpenChange(next: boolean) {
     setOpen(next);
     if (!next && window.location.hash === "#booking") {
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search,
-      );
+      history.replaceState(null, "", window.location.pathname + window.location.search);
     }
   }
 
@@ -106,8 +93,7 @@ export function BookingBar() {
       return;
     }
 
-    const hotelLabel =
-      hotelOptions.find((h) => h.value === hotel)?.label ?? hotel;
+    const hotelLabel = hotelOptions.find((h) => h.value === hotel)?.label ?? hotel;
 
     toast.success("Booking details ready", {
       description: `${hotelLabel} · ${format(range.from, "MMM d")}–${format(range.to, "MMM d")} · ${adults} adults, ${children} children`,
@@ -145,9 +131,7 @@ export function BookingBar() {
           className="max-h-[min(100dvh,40rem)] gap-0 overflow-y-auto rounded-t-2xl border-primary/40 bg-primary p-0 text-white lg:hidden [&_[data-slot=sheet-close]]:text-white [&_[data-slot=sheet-close]]:hover:bg-white/15 [&_[data-slot=sheet-close]]:hover:text-white"
         >
           <SheetHeader className="border-b border-white/15 px-4 py-4 pr-12">
-            <SheetTitle className="font-heading text-lg text-white">
-              Book your stay
-            </SheetTitle>
+            <SheetTitle className="font-heading text-lg text-white">Book your stay</SheetTitle>
           </SheetHeader>
           <div className="px-4 py-4">
             <BookingForm {...formProps} layout="modal" />
@@ -234,7 +218,7 @@ function BookingForm({
               selected={range}
               onSelect={setRange}
               numberOfMonths={isDesktop ? 2 : 1}
-              disabled={{ before: new Date() }}
+              disabled={{before: new Date()}}
               className="bg-white"
             />
           </PopoverContent>
@@ -247,7 +231,7 @@ function BookingForm({
             <SelectValue />
           </SelectTrigger>
           <SelectContent position="popper">
-            {Array.from({ length: 12 }, (_, i) => String(i + 1)).map((n) => (
+            {Array.from({length: 12}, (_, i) => String(i + 1)).map((n) => (
               <SelectItem key={n} value={n}>
                 {n}
               </SelectItem>
@@ -262,7 +246,7 @@ function BookingForm({
             <SelectValue />
           </SelectTrigger>
           <SelectContent position="popper">
-            {Array.from({ length: 7 }, (_, i) => String(i)).map((n) => (
+            {Array.from({length: 7}, (_, i) => String(i)).map((n) => (
               <SelectItem key={n} value={n}>
                 {n}
               </SelectItem>

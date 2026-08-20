@@ -1,17 +1,17 @@
 export const listVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12 },
+    transition: {staggerChildren: 0.12},
   },
 };
 
 export const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: {opacity: 0, y: 24},
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {duration: 0.55, ease: [0.22, 1, 0.36, 1] as const},
   },
 };
 
-export const revealViewport = { once: true, amount: 0.25 } as const;
+export const revealViewport = {once: true, amount: 0.25} as const;

@@ -1,21 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { itemVariants, revealViewport } from "@/lib/landing-motion";
+import {motion} from "framer-motion";
+import {ArrowRight} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {itemVariants, revealViewport} from "@/lib/landing-motion";
 
 export function Cta() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-24">
-      <Image
-        src="/images/bcg_3.webp"
-        alt=""
-        fill
-        className="object-cover"
-        sizes="100vw"
-      />
+      <Image src="/images/bcg_3.webp" alt="" fill className="object-cover" sizes="100vw" />
       <div className="absolute inset-0 bg-navy/70" />
 
       <div className="reveal-on-scroll relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
@@ -31,9 +25,7 @@ export function Cta() {
           <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Book today and save on your stay
           </h2>
-          <p className="mt-4 text-base text-white/80">
-            Guaranteed best price on direct booking
-          </p>
+          <p className="mt-4 text-base text-white/80">Guaranteed best price on direct booking</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button
               asChild

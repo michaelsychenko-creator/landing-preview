@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, MapPin, Users } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import {motion} from "framer-motion";
+import {ArrowRight, ExternalLink, MapPin, Users} from "lucide-react";
+import {Badge} from "@/components/ui/badge";
+import {Button} from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -32,13 +32,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Separator } from "@/components/ui/separator";
-import { hotels } from "@/lib/landing-content";
-import {
-  itemVariants,
-  listVariants,
-  revealViewport,
-} from "@/lib/landing-motion";
+import {Separator} from "@/components/ui/separator";
+import {hotels} from "@/lib/landing-content";
+import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
 const spring = {
   type: "spring" as const,
@@ -51,20 +47,18 @@ const cardHover = {
   rest: {
     y: 0,
     borderColor: "rgba(23, 42, 73, 0.07)",
-    boxShadow:
-      "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0)",
+    boxShadow: "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0)",
   },
   hover: {
     y: -6,
     borderColor: "rgba(255, 145, 77, 0.35)",
-    boxShadow:
-      "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0.45)",
+    boxShadow: "0 1px 0 rgba(23, 42, 73, 0.03), 0 28px 50px -28px rgba(23, 42, 73, 0.45)",
   },
 };
 
 const imageHover = {
-  rest: { scale: 1 },
-  hover: { scale: 1.05 },
+  rest: {scale: 1},
+  hover: {scale: 1.05},
 };
 
 type Hotel = (typeof hotels)[number];
@@ -91,7 +85,7 @@ export function HotelsDirectory() {
   );
 }
 
-function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
+function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.location)}`;
 
   return (
@@ -102,8 +96,8 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
       variants={cardHover}
       transition={{
         y: spring,
-        borderColor: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-        boxShadow: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+        borderColor: {duration: 0.4, ease: [0.22, 1, 0.36, 1]},
+        boxShadow: {duration: 0.45, ease: [0.22, 1, 0.36, 1]},
       }}
       className="overflow-hidden rounded-2xl border bg-white"
     >
@@ -115,10 +109,7 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
                 <Badge className="h-7 min-w-7 rounded-full px-2.5 text-sm font-semibold">
                   {index}
                 </Badge>
-                <Badge
-                  variant="secondary"
-                  className="h-7 gap-1 bg-cream px-2.5 text-navy"
-                >
+                <Badge variant="secondary" className="h-7 gap-1 bg-cream px-2.5 text-navy">
                   <Users className="size-3.5" />
                   Up to {hotel.capacity} guests
                 </Badge>
@@ -141,10 +132,7 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
               <div className="mt-6 flex flex-wrap gap-2">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="border-navy/15 text-navy"
-                    >
+                    <Button variant="outline" className="border-navy/15 text-navy">
                       <MapPin className="size-4" />
                       View on Map
                     </Button>
@@ -152,13 +140,10 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
                   <DialogContent className="sm:max-w-md">
                     <DialogHeader>
                       <DialogTitle>{hotel.name}</DialogTitle>
-                      <DialogDescription>
-                        {hotel.location}
-                      </DialogDescription>
+                      <DialogDescription>{hotel.location}</DialogDescription>
                     </DialogHeader>
                     <p className="text-sm leading-relaxed text-navy-muted">
-                      Open Google Maps to see this aparthotel neighbourhood and
-                      nearby connections.
+                      Open Google Maps to see this aparthotel neighbourhood and nearby connections.
                     </p>
                     <DialogFooter>
                       <Button asChild className="text-white">
@@ -185,9 +170,7 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
             <CardFooter className="mt-auto justify-between gap-3 rounded-none border-0 bg-transparent p-0">
               <p className="text-sm text-navy-muted">
                 from{" "}
-                <span className="font-heading text-3xl font-semibold text-navy">
-                  {hotel.price}
-                </span>
+                <span className="font-heading text-3xl font-semibold text-navy">{hotel.price}</span>
                 <span>/night</span>
               </p>
               <Button
@@ -210,20 +193,17 @@ function HotelCard({ hotel, index }: { hotel: Hotel; index: number }) {
   );
 }
 
-function HotelGallery({ hotel }: { hotel: Hotel }) {
+function HotelGallery({hotel}: {hotel: Hotel}) {
   return (
     <div className="relative min-h-64 overflow-hidden bg-cream lg:min-h-full">
-      <Carousel
-        opts={{ align: "start", loop: true }}
-        className="h-full"
-      >
+      <Carousel opts={{align: "start", loop: true}} className="h-full">
         <CarouselContent>
           {hotel.gallery.map((src, i) => (
             <CarouselItem key={src + i} className="basis-[88%] sm:basis-1/2">
               <div className="relative h-64 overflow-hidden sm:h-80 lg:h-full lg:min-h-104">
                 <motion.div
                   variants={imageHover}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{duration: 0.5, ease: [0.22, 1, 0.36, 1]}}
                   className="absolute inset-0"
                 >
                   <Image
@@ -247,7 +227,7 @@ function HotelGallery({ hotel }: { hotel: Hotel }) {
 }
 
 function CarouselDots() {
-  const { api } = useCarousel();
+  const {api} = useCarousel();
   const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(0);
 
@@ -273,16 +253,14 @@ function CarouselDots() {
 
   return (
     <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
-      {Array.from({ length: count }).map((_, i) => (
+      {Array.from({length: count}).map((_, i) => (
         <button
           key={i}
           type="button"
           aria-label={`Go to slide ${i + 1}`}
           onClick={() => api?.scrollTo(i)}
           className={
-            i === selected
-              ? "size-2 rounded-full bg-primary"
-              : "size-2 rounded-full bg-white/80"
+            i === selected ? "size-2 rounded-full bg-primary" : "size-2 rounded-full bg-white/80"
           }
         />
       ))}

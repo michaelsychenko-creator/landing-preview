@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import {ArrowRight, Star} from "lucide-react";
+import {Button} from "@/components/ui/button";
 
 export function Hero() {
   return (
@@ -33,12 +33,11 @@ export function Hero() {
           <h1 className="animate-hero-in-delay font-heading text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             Apartments that
             <br />
-            feel like{" "}
-            <span className="text-primary">home</span>
+            feel like <span className="text-primary">home</span>
           </h1>
           <p className="animate-hero-in-delay-2 mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
-            A network of premium apartment hotels in the heart of Valencia.
-            Perfect for tourists, families and large groups of up to 12 people.
+            A network of premium apartment hotels in the heart of Valencia. Perfect for tourists,
+            families and large groups of up to 12 people.
           </p>
           <div className="animate-hero-in-delay-2 mt-8 flex flex-wrap gap-3">
             <Button
@@ -76,14 +75,14 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
+function Stat({value, label}: {value: string; label: string}) {
   return (
     <div className="rounded-xl bg-white/10 px-3 py-3 backdrop-blur-sm sm:px-4">
       <p className="text-2xl font-semibold text-white">{value}</p>
       <p className="mt-1 text-xs text-white/75">{label}</p>
     </div>
-  )
+  );
 }

@@ -1,18 +1,18 @@
 export const navLinks = [
-  { label: "Main", href: "/" },
-  { label: "About Us", href: "#" },
-  { label: "Hotels", href: "/hotels" },
-  { label: "Offers", href: "#offers" },
-  { label: "Gallery", href: "#" },
-  { label: "Contacts", href: "#" },
-  { label: "FAQ", href: "#" },
+  {label: "Main", href: "/"},
+  {label: "About Us", href: "#"},
+  {label: "Hotels", href: "/hotels"},
+  {label: "Offers", href: "#offers"},
+  {label: "Gallery", href: "#"},
+  {label: "Contacts", href: "#"},
+  {label: "FAQ", href: "#"},
 ] as const;
 
 export const phoneDisplay = "+ 34 960 000 001";
 
 export const hotelOptions = [
-  { value: "all", label: "All Aparthotel" },
-  { value: "gayano", label: "VLC Apart Gayano" },
+  {value: "all", label: "All Aparthotel"},
+  {value: "gayano", label: "VLC Apart Gayano"},
 ] as const;
 
 export const amenities = [
@@ -28,20 +28,17 @@ export const amenities = [
   },
   {
     title: "Near the Sea & Centre",
-    description:
-      "All our locations are within walking distance of restaurants and landmarks",
+    description: "All our locations are within walking distance of restaurants and landmarks",
     icon: "/images/3.png",
   },
   {
     title: "Online Check-in 24/7",
-    description:
-      "Arrive at any time without waiting at reception — via app or door code",
+    description: "Arrive at any time without waiting at reception — via app or door code",
     icon: "/images/4.png",
   },
   {
     title: "Laundry",
-    description:
-      "In-apartment washer and dryer — fresh clothes without leaving home",
+    description: "In-apartment washer and dryer — fresh clothes without leaving home",
     icon: "/images/5.png",
   },
 
@@ -63,11 +60,7 @@ export const amenities = [
   },
 ] as const;
 
-const hotelGallery = [
-  "/images/2-1.webp",
-  "/images/2-2.png",
-  "/images/2-3.webp",
-] as const;
+const hotelGallery = ["/images/2-1.webp", "/images/2-2.png", "/images/2-3.webp"] as const;
 
 export const hotels = [
   {
@@ -119,16 +112,15 @@ export const hotelsHero = {
   image: "/images/4-2.webp",
   cta: "About Us",
   stats: [
-    { value: "12", unit: "PPL", label: "max capacity" },
-    { value: "10%+", unit: "", label: "Discount on Direct Booking" },
+    {value: "12", unit: "PPL", label: "max capacity"},
+    {value: "10%+", unit: "", label: "Discount on Direct Booking"},
   ],
 } as const;
 
 export const advantagePoints = [
   {
     title: "Corporate Retreats",
-    description:
-      "A complete space for your team with work areas and meeting rooms",
+    description: "A complete space for your team with work areas and meeting rooms",
   },
   {
     title: "Large Family Holidays",
@@ -140,12 +132,7 @@ export const advantagePoints = [
   },
 ] as const;
 
-export const audienceTags = [
-  "Corporate",
-  "Families",
-  "Tour Groups",
-  "Celebrations",
-] as const;
+export const audienceTags = ["Corporate", "Families", "Tour Groups", "Celebrations"] as const;
 
 export const offers = [
   {

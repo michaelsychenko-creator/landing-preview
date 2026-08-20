@@ -1,59 +1,53 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Menu, MessageCircle, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import { navLinks, phoneDisplay } from "@/lib/landing-content"
-import { cn } from "@/lib/utils"
+import {useEffect, useRef, useState} from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {Menu, MessageCircle, Phone} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import {navLinks, phoneDisplay} from "@/lib/landing-content";
+import {cn} from "@/lib/utils";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
-  const [open, setOpen] = useState(false)
-  const lastY = useRef(0)
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [open, setOpen] = useState(false);
+  const lastY = useRef(0);
 
   useEffect(() => {
-    lastY.current = window.scrollY
-    document.documentElement.dataset.headerHidden = "false"
+    lastY.current = window.scrollY;
+    document.documentElement.dataset.headerHidden = "false";
 
     const onScroll = () => {
-      const y = window.scrollY
-      const delta = y - lastY.current
+      const y = window.scrollY;
+      const delta = y - lastY.current;
 
-      setScrolled(y > 12)
+      setScrolled(y > 12);
 
       // Always show near the top; hide on downward scroll, reveal on upward
       if (y < 48) {
-        setHidden(false)
+        setHidden(false);
       } else if (delta > 6) {
-        setHidden(true)
+        setHidden(true);
       } else if (delta < -6) {
-        setHidden(false)
+        setHidden(false);
       }
 
-      lastY.current = y
-    }
+      lastY.current = y;
+    };
 
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll();
+    window.addEventListener("scroll", onScroll, {passive: true});
     return () => {
-      window.removeEventListener("scroll", onScroll)
-      delete document.documentElement.dataset.headerHidden
-    }
-  }, [])
+      window.removeEventListener("scroll", onScroll);
+      delete document.documentElement.dataset.headerHidden;
+    };
+  }, []);
 
   useEffect(() => {
-    document.documentElement.dataset.headerHidden = hidden ? "true" : "false"
-  }, [hidden])
+    document.documentElement.dataset.headerHidden = hidden ? "true" : "false";
+  }, [hidden]);
 
   return (
     <header
@@ -62,7 +56,7 @@ export function SiteHeader() {
         scrolled
           ? "border-white/10 bg-navy/95 shadow-md backdrop-blur-md"
           : "border-transparent bg-navy",
-        hidden && !open ? "-translate-y-full" : "translate-y-0"
+        hidden && !open ? "-translate-y-full" : "translate-y-0",
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
@@ -122,7 +116,10 @@ export function SiteHeader() {
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[min(100%,20rem)] border-navy-muted bg-navy text-white">
+          <SheetContent
+            side="right"
+            className="w-[min(100%,20rem)] border-navy-muted bg-navy text-white"
+          >
             <SheetHeader>
               <SheetTitle className="text-left text-white">
                 <Image
@@ -148,7 +145,10 @@ export function SiteHeader() {
             </nav>
             <div className="mt-8 flex flex-col gap-3 border-t border-white/15 px-4 pt-6">
               <span className="text-base font-medium text-white/65">EN / ES</span>
-              <a href="#" className="inline-flex items-center gap-2 text-base font-medium text-white">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 text-base font-medium text-white"
+              >
                 <MessageCircle className="size-4" />
                 Chat with us
               </a>
@@ -164,5 +164,5 @@ export function SiteHeader() {
         </Sheet>
       </div>
     </header>
-  )
+  );
 }
