@@ -1,102 +1,53 @@
 export const navLinks = [
-  {label: "Main", href: "/"},
-  {label: "About Us", href: "/about-us"},
-  {label: "Hotels", href: "/hotels"},
-  {label: "Offers", href: "#offers"},
-  {label: "Gallery", href: "/gallery"},
-  {label: "Contacts", href: "/contacts"},
-  {label: "FAQ", href: "/faq"},
+  {id: "main", href: "/"},
+  {id: "about", href: "/about-us"},
+  {id: "hotels", href: "/hotels"},
+  {id: "offers", href: "#offers"},
+  {id: "gallery", href: "/gallery"},
+  {id: "contacts", href: "/contacts"},
+  {id: "faq", href: "/faq"},
 ] as const;
 
 export const phoneDisplay = "+ 34 960 000 001";
 
-export const hotelOptions = [
-  {value: "all", label: "All Aparthotel"},
-  {value: "gayano", label: "VLC Apart Gayano"},
-] as const;
+export const hotelOptions = [{value: "all"}, {value: "gayano"}] as const;
 
 export const amenities = [
-  {
-    title: "Fully Equipped Kitchen",
-    description: "Fridge, hob, dishwasher and everything you need to cook at home",
-    icon: "/images/1.png",
-  },
-  {
-    title: "Free High-Speed Wi-Fi",
-    description: "Gigabit internet in every apartment — for work and leisure",
-    icon: "/images/2.png",
-  },
-  {
-    title: "Near the Sea & Centre",
-    description: "All our locations are within walking distance of restaurants and landmarks",
-    icon: "/images/3.png",
-  },
-  {
-    title: "Online Check-in 24/7",
-    description: "Arrive at any time without waiting at reception — via app or door code",
-    icon: "/images/4.png",
-  },
-  {
-    title: "Laundry",
-    description: "In-apartment washer and dryer — fresh clothes without leaving home",
-    icon: "/images/5.png",
-  },
-
-  {
-    title: "Spacious Apartments",
-    description:
-      "Generous layouts — up to 12 people in one apartment. Ideal for groups and families",
-    icon: "/images/6.png",
-  },
-  {
-    title: "24/7 Support",
-    description: "Chatbot and live agent always available to resolve any issue",
-    icon: "/images/7.png",
-  },
-  {
-    title: "Parking & Transfers",
-    description: "Free parking around and airport transfer to/from Valencia Airport",
-    icon: "/images/8.png",
-  },
+  {id: "kitchen", icon: "/images/1.png"},
+  {id: "wifi", icon: "/images/2.png"},
+  {id: "location", icon: "/images/3.png"},
+  {id: "checkin", icon: "/images/4.png"},
+  {id: "laundry", icon: "/images/5.png"},
+  {id: "spacious", icon: "/images/6.png"},
+  {id: "support", icon: "/images/7.png"},
+  {id: "parking", icon: "/images/8.png"},
 ] as const;
 
 const hotelGallery = ["/images/2-1.webp", "/images/2-2.png", "/images/2-3.webp"] as const;
 
 export const hotels = [
   {
+    id: "gayano",
     name: "VLC Apart Gayano",
     location: "Valencia, Rascanya · Torrefiel",
-    description:
-      "A cosy stay in a lively residential neighbourhood with good tram and bus connections and a genuine local feel",
-    longDescription:
-      "A cosy stay in a lively, authentic neighbourhood north of Valencia's city centre. Apartments with capacity for up to 12 guests, good tram and bus connections make it easy to explore the city, while local markets, cafés and parks are right on your doorstep. Perfect for families, groups and anyone who wants to experience real Valencian life",
-    tags: "City Connections · Residential Feel · Local Atmosphere",
     price: "€99",
     image: "/images/2-1.webp",
     capacity: 12,
     gallery: hotelGallery,
   },
   {
+    id: "cortina",
     name: "VLC Apart Cortina",
     location: "Valencia, Benicalap",
-    description:
-      "Quiet family-friendly district with tram line nearby and one of Valencia's largest parks on the doorstep",
-    longDescription:
-      "Set in a quiet, family-friendly district with tram line 4 just minutes away. Apartments with capacity for up to 8 guests, with one of Valencia's largest green spaces — Parque de Benicalap — on the doorstep, making it ideal for families and longer stays. A peaceful base with easy access to the city centre and the beach",
-    tags: "Tram Access · Park Proximity · Family-Friendly Area",
     price: "€99",
     image: "/images/2-2.png",
     capacity: 8,
     gallery: hotelGallery,
   },
   {
+    id: "encarna",
     name: "VLC Apart Encarna",
     location: "Valencia, Benicalap",
-    description:
-      "Authentic residential streets, local cafés and easy bike or tram access to Valencia's landmarks — without the tourist bustle",
-    longDescription:
-      "Authentic residential streets, local cafés and a calm atmosphere away from the tourist crowds. Apartments with capacity for up to 4 guests, easy bike or tram access to Valencia's landmarks makes this a great choice for those who want comfort and a genuine local experience — without the bustle",
-    tags: "Quiet Streets · Authentic Neighbourhood · Bike-Friendly",
     price: "€99",
     image: "/images/2-3.webp",
     capacity: 4,
@@ -104,225 +55,81 @@ export const hotels = [
   },
 ] as const;
 
+export type Hotel = (typeof hotels)[number];
+
 export const hotelsHero = {
-  eyebrow: "Our hotels",
-  titleLead: "Find Your Perfect Stay",
-  titleAccent: "in Valencia",
-  body: "Three aparthotels in the heart of Valencia — each in its own neighbourhood, each with its own character. Whether you're travelling with family, a group of friends or a remote team, we have the right space for your stay. All apartments are fully equipped, spacious and designed for comfort — from a weekend getaway to a long-term stay.",
   image: "/images/4-2.webp",
-  cta: "About Us",
   ctaHref: "/about-us",
   stats: [
-    {value: "12", unit: "PPL", label: "max capacity"},
-    {value: "10%+", unit: "", label: "Discount on Direct Booking"},
+    {id: "capacity", value: "12", unitKey: "capacityUnit" as const},
+    {id: "discount", value: "10%+", unitKey: null},
   ],
 } as const;
 
-export const advantagePoints = [
-  {
-    title: "Corporate Retreats",
-    description: "A complete space for your team with work areas and meeting rooms",
-  },
-  {
-    title: "Large Family Holidays",
-    description: "Everyone under one roof — no hotel corridors between rooms",
-  },
-  {
-    title: "Tour Groups & Travel Agencies",
-    description: "Special rates and terms for tour operators and travel agencies",
-  },
-] as const;
+export const advantagePoints = [{id: "corporate"}, {id: "family"}, {id: "tours"}] as const;
 
-export const audienceTags = ["Corporate", "Families", "Tour Groups", "Celebrations"] as const;
+export const audienceTags = ["corporate", "families", "tourGroups", "celebrations"] as const;
 
 export const offers = [
-  {
-    discount: "10%+",
-    title: "Direct Booking",
-    description:
-      "Book directly on our website and get a guaranteed best price. No middleman commissions",
-    cta: "Book Now",
-    image: "/images/3-1.webp",
-  },
-  {
-    discount: "30%",
-    title: "Long-term Stay",
-    description:
-      "Book for 30+ days and get a special 30% discount. Perfect for remote work or summer stay in Valencia",
-    cta: "Book Now",
-    image: "/images/3-2.webp",
-  },
+  {id: "direct", discount: "10%+", image: "/images/3-1.webp"},
+  {id: "longStay", discount: "30%", image: "/images/3-2.webp"},
 ] as const;
 
 export const eventOffer = {
-  eyebrow: "• Valencia Event",
-  title: "Gran Feria de València",
-  description:
-    "Valencia's biggest summer celebration — the whole month of July. Book your apartment early and save 15%",
   discount: "-15%",
-  discountNote: "with early booking",
-  cta: "Book for the Festival",
 } as const;
 
 export const reviews = [
-  {
-    quote:
-      "A wonderful place for a large family! We arrived as 9 people and had plenty of space. The kitchen is fully equipped, and the city view is incredible.",
-    name: "Olena K.",
-    meta: "Kyiv, Ukraine · July 2024",
-  },
-  {
-    quote:
-      "Perfect for our team offsite. We could work, cook together and still feel at home. Check-in was seamless and support replied within minutes.",
-    name: "Marcus L.",
-    meta: "Berlin, Germany · March 2025",
-  },
-  {
-    quote:
-      "Spacious, clean and right where we needed to be. Booking direct saved us money and the apartment fit our whole group comfortably.",
-    name: "Sofía R.",
-    meta: "Madrid, Spain · June 2025",
-  },
-  {
-    quote:
-      "We stayed for a week with friends and loved every bit of it. Quiet building, fast Wi-Fi, and the terrace made evenings special.",
-    name: "Tomáš V.",
-    meta: "Prague, Czechia · September 2024",
-  },
-  {
-    quote:
-      "Exactly what we needed for a weekend escape. The apartment was spotless, the bed was excellent, and communication was clear from start to finish.",
-    name: "Amélie D.",
-    meta: "Lyon, France · January 2025",
-  },
-  {
-    quote:
-      "Great location for exploring the city on foot. Having a full kitchen meant we could cook after long days out — felt like a real home.",
-    name: "James W.",
-    meta: "London, UK · April 2025",
-  },
+  {id: "olena", name: "Olena K."},
+  {id: "marcus", name: "Marcus L."},
+  {id: "sofia", name: "Sofía R."},
+  {id: "tomas", name: "Tomáš V."},
+  {id: "amelie", name: "Amélie D."},
+  {id: "james", name: "James W."},
 ] as const;
 
 export const aboutHero = {
-  eyebrow: "Our Story",
-  title: "About Us",
-  paragraphs: [
-    "We Are VLC Apart. Three aparthotels in Valencia. Three neighbourhoods. One idea — to give every guest a place that feels like home, not just a room for the night.",
-    "VLC Apart was created for those who want more than a standard hotel stay: space to live, cook, work and explore — at their own pace, in a real Valencian neighbourhood",
-  ],
   image: "/images/4-2.webp",
-  cta: "Our hotels",
   ctaHref: "/hotels",
   stats: [
-    {value: "3", label: "Locations in Valencia"},
-    {value: "5.0", label: "Average Rating", rating: true},
+    {id: "locations", value: "3"},
+    {id: "rating", value: "5.0", rating: true},
   ],
 } as const;
 
 export const aboutReasons = [
-  {
-    title: "Fully Equipped Apartments",
-    description:
-      "Every apartment comes with a complete Kitchen, Dishwasher, Smart TV and everything you need for a comfortable stay — whether you're staying for a few nights or several months",
-    icon: "/images/1-1.png",
-  },
-  {
-    title: "Three Locations in Valencia",
-    description:
-      "Gayano, Cortina and Encarna — each in a different neighbourhood, each with its own character. Choose the one that fits your stay. Any of them are close to the center and the beach by tram or bike.",
-    icon: "/images/2-4.png",
-  },
-  {
-    title: "Direct Booking Advantage",
-    description:
-      "Book directly on our website and get the best available rate. No hidden fees, no middlemen",
-    icon: "/images/3-3.png",
-  },
-  {
-    title: "For Any Group Size",
-    description:
-      "From a solo traveller to a group of 12 — we have the right apartment for every size and every need",
-    icon: "/images/4-3.png",
-  },
-  {
-    title: "Local at Heart",
-    description:
-      "Our aparthotels are in residential neighbourhoods where real Valencia happens — local markets, corner cafés and tram connections to everywhere",
-    icon: "/images/5-1.png",
-  },
-  {
-    title: "Everything On-Site",
-    description:
-      "From a fully equipped kitchen and laundry room to a fitness room, Lobby bar-Market and lockers — everything you need is right where you stay",
-    icon: "/images/6-1.png",
-  },
+  {id: "apartments", icon: "/images/1-1.png"},
+  {id: "locations", icon: "/images/2-4.png"},
+  {id: "direct", icon: "/images/3-3.png"},
+  {id: "groupSize", icon: "/images/4-3.png"},
+  {id: "local", icon: "/images/5-1.png"},
+  {id: "onsite", icon: "/images/6-1.png"},
 ] as const;
 
-export const aboutValues = {
-  eyebrow: "What We Stand For",
-  title: "Comfort, Honesty, Local Experience",
-  paragraphs: [
-    "We believe that where you stay shapes how you experience a city. That's why every VLC Apart property is designed to offer genuine comfort in a genuine neighbourhood — not a polished tourist bubble, but a real place where you can settle in and feel at ease.",
-    "We value transparency in pricing, quality in every detail and warmth in every interaction. Our goal is simple: to make your stay in Valencia feel effortless and memorable",
-  ],
-  gallery: hotelGallery,
-} as const;
-
-export const aboutHotelsHeading = {
-  eyebrow: "Our hotels",
-  title: "Three Aparthotels, One Standard of Quality",
-} as const;
+export const aboutValuesGallery = hotelGallery;
 
 export const aboutWelcome = {
-  eyebrow: "Who We Welcome",
-  title: "A Place for Everyone",
   rating: "5.0",
-  ratingNote: "based on 248 reviews",
   audiences: [
-    {
-      title: "Families",
-      description:
-        "Spacious apartments with fully equipped kitchens make family stays easy and affordable. Room for everyone — from studio to 12-guest apartments",
-      image: "/images/1-2.png",
-    },
-    {
-      title: "Groups & Teams",
-      description:
-        "Travelling with a large group or a remote team? Our larger apartments sleep up to 12 guests, with all the space you need to work, relax and spend time together",
-      image: "/images/2-5.png",
-    },
-    {
-      title: "Long-stay Guests",
-      description:
-        "Planning to stay for a month or more? We offer special long-stay rates and all the comforts of home — so you can focus on life in Valencia, not logistics",
-      image: "/images/3-4.png",
-    },
-    {
-      title: "Solo Travellers & Couples",
-      description:
-        "A quiet, well-equipped base in a real neighbourhood — everything you need, nothing you don't",
-      image: "/images/4-4.png",
-    },
+    {id: "families", image: "/images/1-2.png"},
+    {id: "groups", image: "/images/2-5.png"},
+    {id: "longStay", image: "/images/3-4.png"},
+    {id: "solo", image: "/images/4-4.png"},
   ],
 } as const;
 
-export const footerLegal = ["Privacy", "Terms & conditions", "Cookies"] as const;
-
-export const contactHero = {
-  eyebrow: "Get in Touch",
-  title: "Contact Us",
-} as const;
+export const footerLegal = ["privacy", "terms", "cookies"] as const;
 
 export const contactProperties = [
   {
     id: "gayano",
     shortName: "Gayano",
     name: "VLC Apart Gayano",
-    receptionLabel: "Reservation/Recepción",
     phone: "+34 960 000 001",
     phoneHref: "tel:+34960000001",
     email: "Gayano@vlcapart.com",
-    addressLines: ["Carrer de Gayano Lluch, 4", "Rascanya · Torrefiel", "Valencia, 46025, Spain"],
+    addressLines: ["Carrer de Gayano Lluch, 4", "Rascanya · Torrefiel"],
+    cityPostal: "Valencia, 46025",
     neighbourhood: "Rascanya · Torrefiel",
     lat: 39.491135,
     lng: -0.380457,
@@ -333,11 +140,11 @@ export const contactProperties = [
     id: "cortina",
     shortName: "Cortina",
     name: "VLC Apart Cortina",
-    receptionLabel: "Reservation/Recepción",
     phone: "+34 960 000 001",
     phoneHref: "tel:+34960000001",
     email: "Cortina@vlcapart.com",
-    addressLines: ["C. de Carles Cortina, 5", "Benicalap", "Valencia, 46025, Spain"],
+    addressLines: ["C. de Carles Cortina, 5", "Benicalap"],
+    cityPostal: "Valencia, 46025",
     neighbourhood: "Benicalap",
     lat: 39.499413,
     lng: -0.390065,
@@ -348,11 +155,11 @@ export const contactProperties = [
     id: "encarna",
     shortName: "Encarna",
     name: "VLC Apart Encarna",
-    receptionLabel: "Reservation/Recepción",
     phone: "+34 960 000 001",
     phoneHref: "tel:+34960000001",
     email: "Encarna@vlcapart.com",
-    addressLines: ["Carrer d'Encarna Albarracín, 6", "Benicalap", "Valencia, 46025, Spain"],
+    addressLines: ["Carrer d'Encarna Albarracín, 6", "Benicalap"],
+    cityPostal: "Valencia, 46025",
     neighbourhood: "Benicalap",
     lat: 39.497311,
     lng: -0.389632,
@@ -363,8 +170,8 @@ export const contactProperties = [
 
 export type ContactProperty = (typeof contactProperties)[number];
 
-export function contactMapsEmbedUrl(property: ContactProperty) {
-  return `https://maps.google.com/maps?q=${property.mapsQuery}&z=16&hl=en&output=embed`;
+export function contactMapsEmbedUrl(property: ContactProperty, locale: string) {
+  return `https://maps.google.com/maps?q=${property.mapsQuery}&z=16&hl=${locale}&output=embed`;
 }
 
 export function contactMapsSearchUrl(property: ContactProperty) {
@@ -375,261 +182,144 @@ export function contactMapsDirectionsUrl(property: ContactProperty) {
   return `https://www.google.com/maps/dir/?api=1&destination=${property.mapsQuery}`;
 }
 
-export const galleryHero = {
-  eyebrow: "Our spaces",
-  title: "Gallery",
-  body: "Explore our apartments, common areas and the neighbourhoods that make each VLC Apart property unique. Every space is designed with comfort in mind — take a look before you book",
-} as const;
-
 export const galleryFilters = [
-  {value: "all", label: "All"},
-  {value: "gayano", label: "Gayano"},
-  {value: "cortina", label: "Cortina"},
-  {value: "encarna", label: "Encarna"},
+  {value: "all"},
+  {value: "gayano"},
+  {value: "cortina"},
+  {value: "encarna"},
 ] as const;
 
 export const galleryPhotos = [
   {
     id: "gayano-living",
     src: "/images/2-1.webp",
-    alt: "Bright living space at VLC Apart Gayano",
     property: "gayano",
     propertyLabel: "VLC Apart Gayano",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "gayano-family",
     src: "/images/1-2.png",
-    alt: "Family-friendly apartment interior at VLC Apart Gayano",
     property: "gayano",
     propertyLabel: "VLC Apart Gayano",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "gayano-group",
     src: "/images/2-5.png",
-    alt: "Open living area for groups at VLC Apart Gayano",
     property: "gayano",
     propertyLabel: "VLC Apart Gayano",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "gayano-common",
     src: "/images/Accommodating-large-groups-together.webp",
-    alt: "Shared space designed for large groups at VLC Apart Gayano",
     property: "gayano",
     propertyLabel: "VLC Apart Gayano",
     category: "common",
-    categoryLabel: "Common area",
   },
   {
     id: "gayano-neighbourhood",
     src: "/images/bcg_1.webp",
-    alt: "Neighbourhood around VLC Apart Gayano in Rascanya",
     property: "gayano",
     propertyLabel: "VLC Apart Gayano",
     category: "neighbourhood",
-    categoryLabel: "Neighbourhood",
   },
   {
     id: "cortina-exterior",
     src: "/images/2-2.png",
-    alt: "VLC Apart Cortina apartment building and surroundings",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "neighbourhood",
-    categoryLabel: "Neighbourhood",
   },
   {
     id: "cortina-interior",
     src: "/images/4-2.webp",
-    alt: "Apartment interior at VLC Apart Cortina",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "cortina-stay",
     src: "/images/3-1.webp",
-    alt: "Comfortable stay details at VLC Apart Cortina",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "cortina-long-stay",
     src: "/images/3-4.png",
-    alt: "Long-stay apartment layout at VLC Apart Cortina",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "cortina-location",
     src: "/images/Location.webp",
-    alt: "Benicalap neighbourhood near VLC Apart Cortina",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "neighbourhood",
-    categoryLabel: "Neighbourhood",
   },
   {
     id: "cortina-common",
     src: "/images/bcg_2.webp",
-    alt: "Common areas and surroundings at VLC Apart Cortina",
     property: "cortina",
     propertyLabel: "VLC Apart Cortina",
     category: "common",
-    categoryLabel: "Common area",
   },
   {
     id: "encarna-building",
     src: "/images/2-3.webp",
-    alt: "VLC Apart Encarna building in Benicalap",
     property: "encarna",
     propertyLabel: "VLC Apart Encarna",
     category: "neighbourhood",
-    categoryLabel: "Neighbourhood",
   },
   {
     id: "encarna-couple",
     src: "/images/4-4.png",
-    alt: "Quiet apartment interior at VLC Apart Encarna",
     property: "encarna",
     propertyLabel: "VLC Apart Encarna",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "encarna-stay",
     src: "/images/3-2.webp",
-    alt: "Furnished apartment at VLC Apart Encarna",
     property: "encarna",
     propertyLabel: "VLC Apart Encarna",
     category: "apartment",
-    categoryLabel: "Apartment",
   },
   {
     id: "encarna-street",
     src: "/images/background_new.png",
-    alt: "Residential streets around VLC Apart Encarna",
     property: "encarna",
     propertyLabel: "VLC Apart Encarna",
     category: "neighbourhood",
-    categoryLabel: "Neighbourhood",
   },
   {
     id: "encarna-common",
     src: "/images/4-1.webp",
-    alt: "Shared interiors at VLC Apart Encarna",
     property: "encarna",
     propertyLabel: "VLC Apart Encarna",
     category: "common",
-    categoryLabel: "Common area",
   },
 ] as const;
 
 export type GalleryPhoto = (typeof galleryPhotos)[number];
 export type GalleryFilter = (typeof galleryFilters)[number]["value"];
 
-export const faqHero = {
-  eyebrow: "Frequently Asked Questions",
-  title: "FAQ",
-} as const;
-
 export const faqItems = [
-  {
-    id: "check-in",
-    n: 1,
-    question: "What is the check-in and check-out time?",
-    answer:
-      "Check-in is from 16:00 and check-out is until 12:00. Early check-in or late check-out is available on request and may be subject to an additional charge.",
-  },
-  {
-    id: "self-check-in",
-    n: 2,
-    question: "Is self check-in available?",
-    answer:
-      "Yes. Self check-in is available anytime at all three properties. At VLC Apart Cortina, reception is staffed from 8:00 to 24:00 — self check-in is available from 24:00 till 8:00. At VLC Apart Gayano and VLC Apart Encarna, reception is available 24 hours a day.",
-  },
-  {
-    id: "parking",
-    n: 3,
-    question: "Is parking available?",
-    answer:
-      "Parking is available nearby. Please contact us in advance for more details on location and availability.",
-  },
-  {
-    id: "pets",
-    n: 4,
-    question: "Are pets allowed?",
-    answer:
-      "Yes, we are pet friendly. Up to 2 pets per apartment are welcome, with a maximum weight of 12 kg each.",
-  },
-  {
-    id: "wifi",
-    n: 5,
-    question: "Is Wi-Fi included?",
-    answer: "Yes, high-speed Wi-Fi is included in all apartments at no extra charge.",
-  },
-  {
-    id: "kitchen",
-    n: 6,
-    question: "Do the apartments have a kitchen?",
-    answer:
-      "Yes, all apartments come with a fully equipped kitchen including a fridge, ceramic hob, dishwasher, electric kettle, coffee machine, microwave and all necessary kitchenware and dishes.",
-  },
-  {
-    id: "minimum-stay",
-    n: 7,
-    question: "Is there a minimum stay requirement?",
-    answer:
-      "There is no minimum stay requirement for standard bookings. For long-term stays of 30 nights or more, special rates apply — contact us for details.",
-  },
-  {
-    id: "direct-booking",
-    n: 8,
-    question: "Can I book directly on the website?",
-    answer:
-      "Yes, and we recommend it. Booking directly on our website guarantees the best available rate with no additional fees or commissions.",
-  },
-  {
-    id: "cancellation",
-    n: 9,
-    question: "What is your cancellation policy?",
-    answer:
-      "For single apartment bookings, free cancellation is available up to 72 hours before arrival. For group bookings of more than one apartment, free cancellation applies up to 7 days before arrival. Cancellations made after these deadlines will be charged 50% of the total booking amount.",
-  },
-  {
-    id: "capacity",
-    n: 10,
-    question: "How many guests can your largest apartment accommodate?",
-    answer:
-      "Our largest apartment — the Loft — can accommodate up to 12 guests, making it ideal for big group stays or team trips.",
-  },
+  {id: "check-in", n: 1},
+  {id: "self-check-in", n: 2},
+  {id: "parking", n: 3},
+  {id: "pets", n: 4},
+  {id: "wifi", n: 5},
+  {id: "kitchen", n: 6},
+  {id: "minimum-stay", n: 7},
+  {id: "direct-booking", n: 8},
+  {id: "cancellation", n: 9},
+  {id: "capacity", n: 10},
 ] as const;
 
 export type FaqItem = (typeof faqItems)[number];
 
 export const faqColumns = [faqItems.slice(0, 5), faqItems.slice(5)] as const;
-
-export function faqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-}

@@ -1,12 +1,13 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState, type ComponentProps, type ReactNode} from "react";
 import Image from "next/image";
-import Link from "next/link";
-import {usePathname} from "next/navigation";
+import {useTranslations} from "next-intl";
 import {Menu, MessageCircle, Phone} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import {LanguageSwitcher} from "@/components/landing/language-switcher";
+import {Link, usePathname} from "@/i18n/navigation";
 import {navLinks, phoneDisplay} from "@/lib/landing-content";
 import {cn} from "@/lib/utils";
 
@@ -16,7 +17,36 @@ function isNavActive(href: string, pathname: string) {
   return pathname === href;
 }
 
+function NavHref({
+  href,
+  className,
+  children,
+  onClick,
+  ...rest
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+  onClick?: () => void;
+} & Omit<ComponentProps<typeof Link>, "href" | "onClick">) {
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={className} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className} onClick={onClick} {...rest}>
+      {children}
+    </Link>
+  );
+}
+
 export function SiteHeader() {
+  const t = useTranslations("Nav");
+  const tHeader = useTranslations("Header");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -33,7 +63,6 @@ export function SiteHeader() {
 
       setScrolled(y > 12);
 
-      // Always show near the top; hide on downward scroll, reveal on upward
       if (y < 48) {
         setHidden(false);
       } else if (delta > 6) {
@@ -83,8 +112,8 @@ export function SiteHeader() {
           {navLinks.map((link) => {
             const active = isNavActive(link.href, pathname);
             return (
-              <Link
-                key={link.label}
+              <NavHref
+                key={link.id}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
@@ -92,14 +121,14 @@ export function SiteHeader() {
                   active ? "text-primary" : "text-white/85",
                 )}
               >
-                {link.label}
-              </Link>
+                {t(link.id)}
+              </NavHref>
             );
           })}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <span className="text-base font-medium text-white/70">EN / ES</span>
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="sm"
@@ -107,8 +136,8 @@ export function SiteHeader() {
             className="gap-1.5 text-base text-white hover:bg-white/10 hover:text-primary"
           >
             <a href="#">
-              <MessageCircle className="size-4" />
-              Chat
+              <MessageCircle data-icon="inline-start" />
+              {tHeader("chat")}
             </a>
           </Button>
           <a
@@ -126,9 +155,9 @@ export function SiteHeader() {
               variant="outline"
               size="icon"
               className="border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white lg:hidden"
-              aria-label="Open menu"
+              aria-label={tHeader("openMenu")}
             >
-              <Menu className="size-5" />
+              <Menu />
             </Button>
           </SheetTrigger>
           <SheetContent
@@ -150,8 +179,8 @@ export function SiteHeader() {
               {navLinks.map((link) => {
                 const active = isNavActive(link.href, pathname);
                 return (
-                  <Link
-                    key={link.label}
+                  <NavHref
+                    key={link.id}
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setOpen(false)}
@@ -160,19 +189,19 @@ export function SiteHeader() {
                       active ? "bg-white/10 text-primary" : "text-white/90",
                     )}
                   >
-                    {link.label}
-                  </Link>
+                    {t(link.id)}
+                  </NavHref>
                 );
               })}
             </nav>
             <div className="mt-8 flex flex-col gap-3 border-t border-white/15 px-4 pt-6">
-              <span className="text-base font-medium text-white/65">EN / ES</span>
+              <LanguageSwitcher />
               <a
                 href="#"
                 className="inline-flex items-center gap-2 text-base font-medium text-white"
               >
                 <MessageCircle className="size-4" />
-                Chat with us
+                {tHeader("chatWithUs")}
               </a>
               <a
                 href={`tel:${phoneDisplay.replace(/\s/g, "")}`}

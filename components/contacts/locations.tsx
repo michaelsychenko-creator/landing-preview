@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {ArrowRight, Mail, MapPin, Phone} from "lucide-react";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
@@ -24,6 +24,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import {Separator} from "@/components/ui/separator";
+import {Link} from "@/i18n/navigation";
 import {
   contactMapsDirectionsUrl,
   contactProperties,
@@ -79,6 +80,7 @@ export function ContactLocations() {
 }
 
 function PropertyCard({property}: {property: ContactProperty}) {
+  const t = useTranslations("Contacts");
   return (
     <motion.div
       initial="rest"
@@ -117,9 +119,7 @@ function PropertyCard({property}: {property: ContactProperty}) {
           <CardTitle className="font-heading text-xl font-semibold tracking-tight text-navy sm:text-2xl">
             {property.name}
           </CardTitle>
-          <CardDescription className="text-sm text-navy-muted">
-            {property.receptionLabel}
-          </CardDescription>
+          <CardDescription className="text-sm text-navy-muted">{t("reception")}</CardDescription>
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col pt-4">
@@ -130,7 +130,7 @@ function PropertyCard({property}: {property: ContactProperty}) {
                   <Phone />
                 </ItemMedia>
                 <ItemContent>
-                  <ItemTitle>Phone number</ItemTitle>
+                  <ItemTitle>{t("phone")}</ItemTitle>
                   <ItemDescription>{property.phone}</ItemDescription>
                 </ItemContent>
               </a>
@@ -141,7 +141,7 @@ function PropertyCard({property}: {property: ContactProperty}) {
                   <Mail />
                 </ItemMedia>
                 <ItemContent>
-                  <ItemTitle>Email</ItemTitle>
+                  <ItemTitle>{t("email")}</ItemTitle>
                   <ItemDescription>{property.email}</ItemDescription>
                 </ItemContent>
               </a>
@@ -151,13 +151,16 @@ function PropertyCard({property}: {property: ContactProperty}) {
                 <MapPin />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Location</ItemTitle>
+                <ItemTitle>{t("location")}</ItemTitle>
                 <ItemDescription className="line-clamp-none">
                   {property.addressLines.map((line) => (
                     <span key={line} className="block">
                       {line}
                     </span>
                   ))}
+                  <span className="block">
+                    {property.cityPostal}, {t("country")}
+                  </span>
                 </ItemDescription>
               </ItemContent>
             </Item>
@@ -169,13 +172,13 @@ function PropertyCard({property}: {property: ContactProperty}) {
         <CardFooter className="flex-col items-stretch gap-2 border-0 bg-transparent">
           <Button asChild className="h-auto min-h-9 whitespace-normal py-2 text-white">
             <a href={contactMapsDirectionsUrl(property)} target="_blank" rel="noreferrer">
-              Get directions on Google Maps
+              {t("getDirectionsMaps")}
               <ArrowRight data-icon="inline-end" />
             </a>
           </Button>
           <Button asChild variant="ghost" className="text-navy hover:bg-white hover:text-primary">
             <Link href={{pathname: "/contacts", query: {property: property.id}, hash: "map"}}>
-              View on map
+              {t("viewOnMap")}
             </Link>
           </Button>
         </CardFooter>

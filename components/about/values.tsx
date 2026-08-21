@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import {
@@ -10,10 +11,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {aboutValues} from "@/lib/landing-content";
+import {aboutValuesGallery} from "@/lib/landing-content";
 import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
 export function AboutValues() {
+  const t = useTranslations("About.values");
+
   return (
     <section className="relative overflow-hidden bg-navy py-16 text-white sm:py-20 lg:py-24">
       <div
@@ -34,15 +37,14 @@ export function AboutValues() {
           viewport={revealViewport}
         >
           <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-            {aboutValues.eyebrow}
+            {t("eyebrow")}
           </p>
           <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-            {aboutValues.title}
+            {t("title")}
           </h2>
           <div className="mt-5 flex flex-col gap-4 text-base leading-relaxed text-white/80">
-            {aboutValues.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            <p>{t("paragraph1")}</p>
+            <p>{t("paragraph2")}</p>
           </div>
         </motion.div>
 
@@ -55,13 +57,13 @@ export function AboutValues() {
         >
           <Carousel opts={{align: "start", loop: true}} className="w-full">
             <CarouselContent className="-ml-4">
-              {aboutValues.gallery.map((src) => (
+              {aboutValuesGallery.map((src) => (
                 <CarouselItem key={src} className="basis-[88%] pl-4 sm:basis-1/2 lg:basis-[42%]">
                   <motion.div variants={itemVariants} className="overflow-hidden rounded-2xl">
                     <AspectRatio ratio={4 / 3}>
                       <Image
                         src={src}
-                        alt="VLC Apart aparthotel interior"
+                        alt={t("galleryAlt")}
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 42vw"
@@ -74,11 +76,11 @@ export function AboutValues() {
             <div className="mt-6 flex justify-end gap-2">
               <CarouselPrevious
                 className="static inset-auto size-9 translate-none rounded-full border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white"
-                aria-label="Previous photo"
+                aria-label={t("previous")}
               />
               <CarouselNext
                 className="static inset-auto size-9 translate-none rounded-full border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white"
-                aria-label="Next photo"
+                aria-label={t("next")}
               />
             </div>
           </Carousel>

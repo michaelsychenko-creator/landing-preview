@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {ArrowRight} from "lucide-react";
 import {Button} from "@/components/ui/button";
@@ -39,15 +40,17 @@ const arrowHover = {
 };
 
 export function Offers() {
+  const t = useTranslations("Offers");
+
   return (
     <section id="offers" className="scroll-mt-24 bg-cream py-16 sm:py-20 lg:py-24">
       <div className="reveal-on-scroll mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-            Deals & Offers
+            {t("eyebrow")}
           </p>
           <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-            More value with direct booking
+            {t("title")}
           </h2>
         </div>
 
@@ -59,7 +62,7 @@ export function Offers() {
           viewport={revealViewport}
         >
           {offers.map((offer) => (
-            <motion.li key={offer.title} variants={itemVariants}>
+            <motion.li key={offer.id} variants={itemVariants}>
               <motion.div
                 initial="rest"
                 animate="rest"
@@ -92,16 +95,16 @@ export function Offers() {
                     {offer.discount}
                   </p>
                   <h3 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-navy">
-                    {offer.title}
+                    {t(`items.${offer.id}.title`)}
                   </h3>
                   <p className="mt-3 flex-1 text-base leading-relaxed text-navy-muted">
-                    {offer.description}
+                    {t(`items.${offer.id}.description`)}
                   </p>
                   <a
                     href="#booking"
                     className="mt-5 inline-flex items-center gap-2 text-base font-semibold text-navy transition-colors hover:text-primary"
                   >
-                    {offer.cta}
+                    {t(`items.${offer.id}.cta`)}
                     <motion.span variants={arrowHover} transition={spring}>
                       <ArrowRight className="size-5" />
                     </motion.span>
@@ -123,26 +126,26 @@ export function Offers() {
           <div className="absolute inset-0 bg-navy/75" />
           <div className="relative grid gap-8 p-8 text-white sm:grid-cols-[1fr_auto] sm:items-end sm:p-10 lg:p-12">
             <div>
-              <p className="text-base text-white/80">{eventOffer.eyebrow}</p>
+              <p className="text-base text-white/80">{t("event.eyebrow")}</p>
               <h3 className="mt-3 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-                {eventOffer.title}
+                {t("event.title")}
               </h3>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80">
-                {eventOffer.description}
+                {t("event.description")}
               </p>
             </div>
             <div className="space-y-4 sm:text-right">
               <Badge className="bg-primary px-3 py-1.5 text-lg font-semibold text-white hover:bg-primary">
                 {eventOffer.discount}
               </Badge>
-              <p className="text-base text-white/75">{eventOffer.discountNote}</p>
+              <p className="text-base text-white/75">{t("event.discountNote")}</p>
               <Button
                 asChild
                 size="lg"
                 className="h-12 gap-2 bg-white px-6 text-base text-navy hover:bg-cream"
               >
                 <a href="#booking">
-                  {eventOffer.cta}
+                  {t("event.cta")}
                   <ArrowRight className="size-5" />
                 </a>
               </Button>

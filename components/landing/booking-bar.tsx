@@ -1,9 +1,11 @@
 "use client";
 
 import {useEffect, useMemo, useState} from "react";
-import {format} from "date-fns";
+import {useFormatter, useLocale, useTranslations} from "next-intl";
+import {es} from "date-fns/locale/es";
+import {enGB} from "date-fns/locale/en-GB";
 import type {DateRange} from "react-day-picker";
-import {ArrowRight, CalendarDays} from "lucide-react";
+import {CalendarDays} from "lucide-react";
 import {toast} from "sonner";
 import {Button} from "@/components/ui/button";
 import {Calendar} from "@/components/ui/calendar";
@@ -26,7 +28,16 @@ const controlClass =
 const stickyBarClass =
   "sticky top-16 z-40 border-b border-primary/40 bg-primary transition-transform duration-300 ease-out will-change-transform sm:top-[4.5rem] [[data-header-hidden=true]_&]:-translate-y-[calc(100%+4rem)] sm:[[data-header-hidden=true]_&]:-translate-y-[calc(100%+4.5rem)]";
 
+const dateOptions = {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+} as const;
+
 export function BookingBar() {
+  const t = useTranslations("Booking");
+  const format = useFormatter();
+  const locale = useLocale();
   const [hotel, setHotel] = useState<string>("gayano");
   const [range, setRange] = useState<DateRange | undefined>();
   const [adults, setAdults] = useState("2");
@@ -35,13 +46,13 @@ export function BookingBar() {
 
   const dateLabel = useMemo(() => {
     if (range?.from && range?.to) {
-      return `${format(range.from, "MMM d, yyyy")} – ${format(range.to, "MMM d, yyyy")}`;
+      return `${format.dateTime(range.from, dateOptions)} – ${format.dateTime(range.to, dateOptions)}`;
     }
     if (range?.from) {
-      return `${format(range.from, "MMM d, yyyy")} – Check-out`;
+      return `${format.dateTime(range.from, dateOptions)} – ${t("checkout")}`;
     }
-    return "Select dates";
-  }, [range]);
+    return t("selectDates");
+  }, [format, range, t]);
 
   useEffect(() => {
     const isMobile = () => window.matchMedia("(max-width: 1023px)").matches;
@@ -86,11 +97,11 @@ export function BookingBar() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!range?.from || !range?.to) {
-      toast.error("Please select check-in and check-out dates.");
+      toast.error(t("errors.selectDates"));
       return;
     }
     if (range.to <= range.from) {
-      toast.error("Check-out must be after check-in.");
+      toast.error(t("errors.checkoutAfter"));
       return;
     }
 
@@ -102,7 +113,7 @@ export function BookingBar() {
     });
 
     if (!opened) {
-      toast.error("Booking Engine is still loading...");
+      toast.error(t("errors.engineLoading"));
       return;
     }
 
@@ -120,25 +131,24 @@ export function BookingBar() {
     setChildren,
     dateLabel,
     onSubmit,
+    calendarLocale: locale === "es" ? es : enGB,
   };
 
   return (
     <>
-      {/* Desktop only — sticky booking form in header */}
       <section id="booking" className={cn(stickyBarClass, "hidden lg:block")}>
         <div className="mx-auto max-w-6xl px-4 py-0 sm:px-6 lg:px-8">
           <BookingForm {...formProps} layout="desktop" />
         </div>
       </section>
 
-      {/* Mobile only — booking form in sheet, opened via #booking CTAs */}
       <Sheet open={open} onOpenChange={onOpenChange}>
         <SheetContent
           side="bottom"
           className="max-h-[min(100dvh,40rem)] gap-0 overflow-y-auto rounded-t-2xl border-primary/40 bg-primary p-0 text-white lg:hidden [&_[data-slot=sheet-close]]:text-white [&_[data-slot=sheet-close]]:hover:bg-white/15 [&_[data-slot=sheet-close]]:hover:text-white"
         >
           <SheetHeader className="border-b border-white/15 px-4 py-4 pr-12">
-            <SheetTitle className="font-heading text-lg text-white">Book your stay</SheetTitle>
+            <SheetTitle className="font-heading text-lg text-white">{t("sheetTitle")}</SheetTitle>
           </SheetHeader>
           <div className="px-4 py-4">
             <BookingForm {...formProps} layout="modal" />
@@ -161,6 +171,7 @@ type BookingFormProps = {
   dateLabel: string;
   onSubmit: (e: React.FormEvent) => void;
   layout: "desktop" | "modal";
+  calendarLocale: typeof es;
 };
 
 function BookingForm({
@@ -175,7 +186,9 @@ function BookingForm({
   dateLabel,
   onSubmit,
   layout,
+  calendarLocale,
 }: BookingFormProps) {
+  const t = useTranslations("Booking");
   const isDesktop = layout === "desktop";
 
   return (
@@ -188,22 +201,22 @@ function BookingForm({
           : "px-0 py-0",
       )}
     >
-      <Field label="Aparthotel" light>
+      <Field label={t("aparthotel")} light>
         <Select value={hotel} onValueChange={setHotel}>
           <SelectTrigger className={controlClass}>
-            <SelectValue placeholder="Select hotel" />
+            <SelectValue placeholder={t("selectHotel")} />
           </SelectTrigger>
           <SelectContent position="popper">
             {hotelOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
-                {option.label}
+                {t(`hotels.${option.value}`)}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </Field>
 
-      <Field label="Dates" light>
+      <Field label={t("dates")} light>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -226,13 +239,14 @@ function BookingForm({
               onSelect={setRange}
               numberOfMonths={isDesktop ? 2 : 1}
               disabled={{before: new Date()}}
+              locale={calendarLocale}
               className="bg-white"
             />
           </PopoverContent>
         </Popover>
       </Field>
 
-      <Field label="Adult guests" light>
+      <Field label={t("adults")} light>
         <Select value={adults} onValueChange={setAdults}>
           <SelectTrigger className={controlClass}>
             <SelectValue />
@@ -247,7 +261,7 @@ function BookingForm({
         </Select>
       </Field>
 
-      <Field label="Children" light>
+      <Field label={t("children")} light>
         <Select value={children} onValueChange={setChildren}>
           <SelectTrigger className={controlClass}>
             <SelectValue />
@@ -268,15 +282,14 @@ function BookingForm({
             className="invisible text-[0.7rem] leading-none font-semibold tracking-[0.08em] uppercase"
             aria-hidden
           >
-            Book
+            {t("book")}
           </span>
         ) : null}
         <Button
           type="submit"
-          className="h-11 w-full gap-2 bg-navy px-6 text-sm text-white hover:bg-navy-muted"
+          className="h-11 w-full bg-navy px-6 text-sm text-white hover:bg-navy-muted"
         >
-          Book Now
-          <ArrowRight className="size-4" />
+          {t("bookNow")}
         </Button>
       </div>
     </form>

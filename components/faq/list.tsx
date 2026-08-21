@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {
   Accordion,
@@ -84,6 +85,7 @@ function FaqColumn({
 }
 
 function FaqCard({item}: {item: FaqItem}) {
+  const t = useTranslations("Faq");
   return (
     <motion.div
       initial="rest"
@@ -98,7 +100,7 @@ function FaqCard({item}: {item: FaqItem}) {
     >
       <Card className="gap-0 overflow-hidden rounded-2xl border bg-white py-0 ring-0">
         <CardHeader className="p-0">
-          <AccordionTrigger className="items-center gap-3 px-4 py-4 text-base hover:no-underline **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-cream **:data-[slot=accordion-trigger-icon]:p-1.5 **:data-[slot=accordion-trigger-icon]:text-navy">
+          <AccordionTrigger className="cursor-pointer items-center gap-3 px-4 py-4 text-base hover:no-underline **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-cream **:data-[slot=accordion-trigger-icon]:p-1.5 **:data-[slot=accordion-trigger-icon]:text-navy">
             <span className="flex min-w-0 items-center gap-3 pr-3">
               <Badge
                 variant="secondary"
@@ -107,14 +109,14 @@ function FaqCard({item}: {item: FaqItem}) {
                 {item.n}
               </Badge>
               <CardTitle className="font-heading text-base leading-snug font-semibold tracking-tight text-navy sm:text-lg">
-                {item.question}
+                {t(`items.${item.id}.question`)}
               </CardTitle>
             </span>
           </AccordionTrigger>
         </CardHeader>
         <AccordionContent className="px-4 pb-4">
           <CardContent className="rounded-xl bg-cream/80 px-4 py-3 text-sm leading-relaxed text-navy-muted sm:text-base">
-            {item.answer}
+            {t(`items.${item.id}.answer`)}
           </CardContent>
         </AccordionContent>
       </Card>

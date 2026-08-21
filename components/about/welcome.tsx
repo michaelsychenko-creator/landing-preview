@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {Star} from "lucide-react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
@@ -35,6 +36,8 @@ const imageHover = {
 };
 
 export function AboutWelcome() {
+  const t = useTranslations("About.welcome");
+
   return (
     <section className="bg-cream py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -47,10 +50,10 @@ export function AboutWelcome() {
         >
           <div className="max-w-2xl">
             <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-              {aboutWelcome.eyebrow}
+              {t("eyebrow")}
             </p>
             <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-              {aboutWelcome.title}
+              {t("title")}
             </h2>
           </div>
           <div className="flex items-center gap-3">
@@ -66,7 +69,7 @@ export function AboutWelcome() {
                 <Star className="size-5 fill-primary text-primary" />
               </p>
               <Badge variant="secondary" className="mt-1 bg-white text-navy-muted">
-                {aboutWelcome.ratingNote}
+                {t("ratingNote")}
               </Badge>
             </div>
           </div>
@@ -80,7 +83,7 @@ export function AboutWelcome() {
           viewport={revealViewport}
         >
           {aboutWelcome.audiences.map((audience) => (
-            <motion.li key={audience.title} variants={itemVariants}>
+            <motion.li key={audience.id} variants={itemVariants}>
               <motion.div
                 initial="rest"
                 animate="rest"
@@ -111,12 +114,12 @@ export function AboutWelcome() {
                   </div>
                   <CardHeader className="gap-2 px-6 pt-5">
                     <CardTitle className="font-heading text-xl font-semibold tracking-tight text-navy">
-                      {audience.title}
+                      {t(`audiences.${audience.id}.title`)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="px-6 pb-6">
                     <CardDescription className="text-sm leading-relaxed text-navy-muted">
-                      {audience.description}
+                      {t(`audiences.${audience.id}.description`)}
                     </CardDescription>
                   </CardContent>
                 </Card>

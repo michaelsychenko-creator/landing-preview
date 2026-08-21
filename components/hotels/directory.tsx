@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from "react";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
 import {ArrowRight, ExternalLink, MapPin, Users} from "lucide-react";
 import {Badge} from "@/components/ui/badge";
@@ -33,7 +34,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {Separator} from "@/components/ui/separator";
-import {hotels} from "@/lib/landing-content";
+import {hotels, type Hotel} from "@/lib/landing-content";
 import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
 const spring = {
@@ -61,8 +62,6 @@ const imageHover = {
   hover: {scale: 1.05},
 };
 
-type Hotel = (typeof hotels)[number];
-
 export function HotelsDirectory() {
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
@@ -75,7 +74,7 @@ export function HotelsDirectory() {
           viewport={revealViewport}
         >
           {hotels.map((hotel, index) => (
-            <motion.li key={hotel.name} variants={itemVariants}>
+            <motion.li key={hotel.id} variants={itemVariants}>
               <HotelCard hotel={hotel} index={index + 1} />
             </motion.li>
           ))}
@@ -86,6 +85,7 @@ export function HotelsDirectory() {
 }
 
 function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
+  const t = useTranslations("Hotels");
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.location)}`;
 
   return (
@@ -111,7 +111,7 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
                 </Badge>
                 <Badge variant="secondary" className="h-7 gap-1 bg-cream px-2.5 text-navy">
                   <Users className="size-3.5" />
-                  Up to {hotel.capacity} guests
+                  {t("upToGuests", {count: hotel.capacity})}
                 </Badge>
               </div>
               <p className="inline-flex items-center gap-1.5 text-xs font-medium text-navy-muted">
@@ -121,12 +121,12 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
               <CardTitle className="font-heading text-2xl font-semibold tracking-tight text-navy sm:text-3xl">
                 {hotel.name}
               </CardTitle>
-              <p className="text-xs tracking-wide text-navy/60">{hotel.tags}</p>
+              <p className="text-xs tracking-wide text-navy/60">{t(`items.${hotel.id}.tags`)}</p>
             </CardHeader>
 
             <CardContent className="mt-4 flex-1 p-0">
               <CardDescription className="text-sm leading-relaxed text-navy-muted sm:text-base">
-                {hotel.longDescription}
+                {t(`items.${hotel.id}.longDescription`)}
               </CardDescription>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -134,7 +134,7 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
                   <DialogTrigger asChild>
                     <Button variant="outline" className="border-navy/15 text-navy">
                       <MapPin className="size-4" />
-                      View on Map
+                      {t("viewOnMap")}
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md">
@@ -142,13 +142,11 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
                       <DialogTitle>{hotel.name}</DialogTitle>
                       <DialogDescription>{hotel.location}</DialogDescription>
                     </DialogHeader>
-                    <p className="text-sm leading-relaxed text-navy-muted">
-                      Open Google Maps to see this aparthotel neighbourhood and nearby connections.
-                    </p>
+                    <p className="text-sm leading-relaxed text-navy-muted">{t("mapDialogBody")}</p>
                     <DialogFooter>
                       <Button asChild className="text-white">
                         <a href={mapsUrl} target="_blank" rel="noreferrer">
-                          Open in Google Maps
+                          {t("openInGoogleMaps")}
                           <ExternalLink className="size-4" />
                         </a>
                       </Button>
@@ -157,10 +155,7 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
                 </Dialog>
 
                 <Button asChild className="text-white">
-                  <a href="#booking">
-                    Book Now
-                    <ArrowRight className="size-4" />
-                  </a>
+                  <a href="#booking">{t("bookNow")}</a>
                 </Button>
               </div>
             </CardContent>
@@ -169,17 +164,17 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
 
             <CardFooter className="mt-auto justify-between gap-3 rounded-none border-0 bg-transparent p-0">
               <p className="text-sm text-navy-muted">
-                from{" "}
+                {t("from")}{" "}
                 <span className="font-heading text-3xl font-semibold text-navy">{hotel.price}</span>
-                <span>/night</span>
+                <span>{t("perNight")}</span>
               </p>
               <Button
                 asChild
                 variant="ghost"
                 className="gap-2 text-navy hover:bg-cream hover:text-primary"
               >
-                <a href="#" aria-label={`Learn more about ${hotel.name}`}>
-                  Learn More
+                <a href="#" aria-label={t("learnMoreAbout", {name: hotel.name})}>
+                  {t("learnMore")}
                   <ArrowRight className="size-4" />
                 </a>
               </Button>
@@ -194,6 +189,7 @@ function HotelCard({hotel, index}: {hotel: Hotel; index: number}) {
 }
 
 function HotelGallery({hotel}: {hotel: Hotel}) {
+  const t = useTranslations("Hotels");
   return (
     <div className="relative min-h-64 overflow-hidden bg-cream lg:min-h-full">
       <Carousel opts={{align: "start", loop: true}} className="h-full">
@@ -208,7 +204,7 @@ function HotelGallery({hotel}: {hotel: Hotel}) {
                 >
                   <Image
                     src={src}
-                    alt={`${hotel.name} photo ${i + 1}`}
+                    alt={t("photoAlt", {name: hotel.name, n: i + 1})}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 28vw"
@@ -227,6 +223,7 @@ function HotelGallery({hotel}: {hotel: Hotel}) {
 }
 
 function CarouselDots() {
+  const t = useTranslations("Hotels");
   const {api} = useCarousel();
   const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(0);
@@ -257,7 +254,7 @@ function CarouselDots() {
         <button
           key={i}
           type="button"
-          aria-label={`Go to slide ${i + 1}`}
+          aria-label={t("goToSlide", {n: i + 1})}
           onClick={() => api?.scrollTo(i)}
           className={
             i === selected ? "size-2 rounded-full bg-primary" : "size-2 rounded-full bg-white/80"

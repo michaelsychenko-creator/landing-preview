@@ -1,7 +1,9 @@
 "use client";
 
 import {Suspense, useCallback} from "react";
-import {useRouter, useSearchParams} from "next/navigation";
+import {useSearchParams} from "next/navigation";
+import {useLocale, useTranslations} from "next-intl";
+import {useRouter} from "@/i18n/navigation";
 import {motion} from "framer-motion";
 import {ExternalLink, Navigation} from "lucide-react";
 import {Button} from "@/components/ui/button";
@@ -35,6 +37,8 @@ export function ContactMap() {
 }
 
 function ContactMapInner() {
+  const t = useTranslations("Contacts");
+  const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
   const selected =
@@ -43,11 +47,15 @@ function ContactMapInner() {
 
   const setSelected = useCallback(
     (value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("property", value);
-      router.replace(`/contacts?${params.toString()}#map`, {scroll: false});
+      router.replace(
+        {
+          pathname: "/contacts",
+          query: {property: value},
+        },
+        {scroll: false},
+      );
     },
-    [router, searchParams],
+    [router],
   );
 
   return (
@@ -80,14 +88,16 @@ function ContactMapInner() {
                       {property.name}
                     </CardTitle>
                     <CardDescription className="text-sm text-navy-muted">
-                      {property.addressLines.join(" · ")}
+                      {[...property.addressLines, `${property.cityPostal}, ${t("country")}`].join(
+                        " · ",
+                      )}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="px-0 pt-5">
                     <div className="relative min-h-88 overflow-hidden sm:min-h-112 lg:min-h-152">
                       <iframe
-                        title={`Map of ${property.name}`}
-                        src={contactMapsEmbedUrl(property)}
+                        title={t("mapTitle", {name: property.name})}
+                        src={contactMapsEmbedUrl(property, locale)}
                         className="absolute inset-0 size-full border-0"
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -99,7 +109,7 @@ function ContactMapInner() {
                     <ButtonGroup>
                       <Button asChild variant="outline" className="border-navy/15 text-navy">
                         <a href={contactMapsSearchUrl(property)} target="_blank" rel="noreferrer">
-                          Open in Google Maps
+                          {t("openInGoogleMaps")}
                           <ExternalLink data-icon="inline-end" />
                         </a>
                       </Button>
@@ -109,7 +119,7 @@ function ContactMapInner() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Get directions
+                          {t("getDirections")}
                           <Navigation data-icon="inline-end" />
                         </a>
                       </Button>

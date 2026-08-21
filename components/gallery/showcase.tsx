@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {AnimatePresence, motion} from "framer-motion";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
@@ -65,6 +66,7 @@ function photosForFilter(filter: GalleryFilter) {
 }
 
 export function GalleryShowcase() {
+  const t = useTranslations("Gallery");
   const [filter, setFilter] = useState<GalleryFilter>("all");
   const [activeId, setActiveId] = useState<GalleryPhoto["id"] | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -95,12 +97,12 @@ export function GalleryShowcase() {
                     type="button"
                     className="block w-full overflow-hidden rounded-2xl text-left"
                     onClick={() => openPhoto(photo.id)}
-                    aria-label={`Open ${photo.alt}`}
+                    aria-label={t("openPhoto", {alt: t(`photos.${photo.id}`)})}
                   >
                     <AspectRatio ratio={4 / 3}>
                       <Image
                         src={photo.src}
-                        alt={photo.alt}
+                        alt={t(`photos.${photo.id}`)}
                         fill
                         priority={index < 3}
                         className="object-cover"
@@ -114,11 +116,11 @@ export function GalleryShowcase() {
             <div className="mt-6 flex justify-end gap-2">
               <CarouselPrevious
                 className="static inset-auto size-9 translate-none rounded-full border-navy/15 bg-white text-navy hover:bg-white hover:text-primary"
-                aria-label="Previous photo"
+                aria-label={t("previous")}
               />
               <CarouselNext
                 className="static inset-auto size-9 translate-none rounded-full border-navy/15 bg-white text-navy hover:bg-white hover:text-primary"
-                aria-label="Next photo"
+                aria-label={t("next")}
               />
             </div>
           </Carousel>
@@ -128,9 +130,11 @@ export function GalleryShowcase() {
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-semibold tracking-wide text-primary uppercase">Browse</p>
+            <p className="text-sm font-semibold tracking-wide text-primary uppercase">
+              {t("browse")}
+            </p>
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-navy">
-              Photos by property
+              {t("photosByProperty")}
             </h2>
           </div>
           <ToggleGroup
@@ -144,11 +148,11 @@ export function GalleryShowcase() {
             variant="outline"
             spacing={0}
             className="flex-wrap bg-white p-1 ring-1 ring-navy/10"
-            aria-label="Filter gallery by property"
+            aria-label={t("filterAria")}
           >
             {galleryFilters.map((item) => (
               <ToggleGroupItem key={item.value} value={item.value} className="px-3 text-navy">
-                {item.label}
+                {t(`filters.${item.value}`)}
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
@@ -191,6 +195,8 @@ function GalleryPhotoCard({
   photo: GalleryPhoto;
   onSelect: (id: GalleryPhoto["id"]) => void;
 }) {
+  const t = useTranslations("Gallery");
+  const alt = t(`photos.${photo.id}`);
   return (
     <motion.div
       initial="rest"
@@ -209,7 +215,7 @@ function GalleryPhotoCard({
           type="button"
           className="w-full text-left"
           onClick={() => onSelect(photo.id)}
-          aria-label={`Open ${photo.alt}`}
+          aria-label={t("openPhoto", {alt})}
         >
           <div className="relative overflow-hidden">
             <AspectRatio ratio={4 / 3}>
@@ -220,7 +226,7 @@ function GalleryPhotoCard({
               >
                 <Image
                   src={photo.src}
-                  alt={photo.alt}
+                  alt={alt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -232,8 +238,8 @@ function GalleryPhotoCard({
             </Badge>
           </div>
           <CardHeader className="gap-1 p-4">
-            <CardTitle className="text-navy">{photo.categoryLabel}</CardTitle>
-            <CardDescription className="text-navy-muted">{photo.alt}</CardDescription>
+            <CardTitle className="text-navy">{t(`categories.${photo.category}`)}</CardTitle>
+            <CardDescription className="text-navy-muted">{alt}</CardDescription>
           </CardHeader>
         </button>
       </Card>
@@ -256,6 +262,7 @@ function GalleryLightbox({
   onClose: () => void;
   onSelect: (id: GalleryPhoto["id"]) => void;
 }) {
+  const t = useTranslations("Gallery");
   const showRelative = (offset: number) => {
     if (!photos.length) return;
     const nextIndex = (activeIndex + offset + photos.length) % photos.length;
@@ -284,10 +291,10 @@ function GalleryLightbox({
         }}
       >
         <DialogHeader>
-          <DialogTitle>{photo ? photo.propertyLabel : "Gallery photo"}</DialogTitle>
+          <DialogTitle>{photo ? photo.propertyLabel : t("galleryPhoto")}</DialogTitle>
           {photo ? (
             <DialogDescription>
-              {photo.categoryLabel} · {photo.alt}
+              {t(`categories.${photo.category}`)} · {t(`photos.${photo.id}`)}
             </DialogDescription>
           ) : null}
         </DialogHeader>
@@ -297,7 +304,7 @@ function GalleryLightbox({
               <AspectRatio ratio={16 / 10}>
                 <Image
                   src={photo.src}
-                  alt={photo.alt}
+                  alt={t(`photos.${photo.id}`)}
                   fill
                   className="object-cover"
                   sizes="(max-width: 896px) 90vw, 56rem"
@@ -311,10 +318,10 @@ function GalleryLightbox({
               <ButtonGroup>
                 <Button type="button" variant="outline" onClick={() => showRelative(-1)}>
                   <ChevronLeft data-icon="inline-start" />
-                  Previous
+                  {t("previous")}
                 </Button>
                 <Button type="button" variant="outline" onClick={() => showRelative(1)}>
-                  Next
+                  {t("next")}
                   <ChevronRight data-icon="inline-end" />
                 </Button>
               </ButtonGroup>

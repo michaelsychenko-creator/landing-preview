@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
-import {ArrowRight} from "lucide-react";
 import {Button} from "@/components/ui/button";
+import {Link} from "@/i18n/navigation";
 import {amenities} from "@/lib/landing-content";
 import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
@@ -48,6 +49,9 @@ const ruleHover = {
 };
 
 export function WhyChooseUs() {
+  const t = useTranslations("WhyChooseUs");
+  const tAmenities = useTranslations("Amenities");
+
   return (
     <section className="relative overflow-hidden bg-cream py-16 sm:py-20 lg:py-24">
       <div
@@ -63,27 +67,21 @@ export function WhyChooseUs() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-              Why Choose Us
+              {t("eyebrow")}
             </p>
             <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-              More than just a hotel
+              {t("title")}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-navy-muted">
-              An apartment hotel combines the comfort of your own flat with hotel-level service —
-              perfect for any length of stay
-            </p>
+            <p className="mt-4 text-base leading-relaxed text-navy-muted">{t("body")}</p>
           </div>
 
           <div className="hidden shrink-0 flex-wrap gap-3 lg:flex">
             <Button
               asChild
               size="lg"
-              className="h-12 gap-2 bg-primary px-6 text-base text-white hover:bg-primary/90"
+              className="h-12 bg-primary px-6 text-base text-white hover:bg-primary/90"
             >
-              <a href="#booking">
-                Book Now
-                <ArrowRight className="size-5" />
-              </a>
+              <a href="#booking">{t("bookNow")}</a>
             </Button>
             <Button
               asChild
@@ -91,7 +89,7 @@ export function WhyChooseUs() {
               variant="outline"
               className="h-12 border-navy/20 px-6 text-base text-navy"
             >
-              <a href="/about-us">About Us</a>
+              <Link href="/about-us">{t("aboutUs")}</Link>
             </Button>
           </div>
         </div>
@@ -104,7 +102,7 @@ export function WhyChooseUs() {
           viewport={revealViewport}
         >
           {amenities.map((item, index) => (
-            <motion.li key={item.title} variants={itemVariants}>
+            <motion.li key={item.id} variants={itemVariants}>
               <motion.div
                 initial="rest"
                 animate="rest"
@@ -148,10 +146,10 @@ export function WhyChooseUs() {
                 </div>
 
                 <h3 className="mt-6 font-heading text-[1.05rem] font-semibold tracking-tight text-navy">
-                  {item.title}
+                  {tAmenities(`${item.id}.title`)}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-muted">
-                  {item.description}
+                  {tAmenities(`${item.id}.description`)}
                 </p>
 
                 <motion.div
@@ -169,12 +167,9 @@ export function WhyChooseUs() {
           <Button
             asChild
             size="lg"
-            className="h-12 gap-2 bg-primary px-6 text-base text-white hover:bg-primary/90"
+            className="h-12 bg-primary px-6 text-base text-white hover:bg-primary/90"
           >
-            <a href="#booking">
-              Book Now
-              <ArrowRight className="size-5" />
-            </a>
+            <a href="#booking">{t("bookNow")}</a>
           </Button>
           <Button
             asChild
@@ -182,7 +177,7 @@ export function WhyChooseUs() {
             variant="outline"
             className="h-12 border-navy/20 px-6 text-base text-navy"
           >
-            <a href="/about-us">About Us</a>
+            <Link href="/about-us">{t("aboutUs")}</Link>
           </Button>
         </div>
       </div>

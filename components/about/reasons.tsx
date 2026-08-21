@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import {useTranslations} from "next-intl";
 import {motion} from "framer-motion";
-import {ArrowRight} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Link} from "@/i18n/navigation";
 import {aboutReasons} from "@/lib/landing-content";
 import {itemVariants, listVariants, revealViewport} from "@/lib/landing-motion";
 
@@ -50,6 +50,8 @@ const ruleHover = {
 };
 
 export function AboutReasons() {
+  const t = useTranslations("About.reasons");
+
   return (
     <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
       <div
@@ -65,15 +67,12 @@ export function AboutReasons() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold tracking-wide text-primary uppercase">
-              Why Choose Us
+              {t("eyebrow")}
             </p>
             <h2 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-              More than just a hotel
+              {t("title")}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-navy-muted">
-              An apartment hotel combines the comfort of your own flat with hotel-level service —
-              perfect for any length of stay
-            </p>
+            <p className="mt-4 text-base leading-relaxed text-navy-muted">{t("body")}</p>
           </div>
 
           <div className="hidden shrink-0 flex-wrap gap-3 lg:flex">
@@ -89,7 +88,7 @@ export function AboutReasons() {
           viewport={revealViewport}
         >
           {aboutReasons.map((item, index) => (
-            <motion.li key={item.title} variants={itemVariants}>
+            <motion.li key={item.id} variants={itemVariants}>
               <motion.div
                 initial="rest"
                 animate="rest"
@@ -133,12 +132,12 @@ export function AboutReasons() {
                       </motion.span>
                     </div>
                     <CardTitle className="mt-6 font-heading text-[1.05rem] font-semibold tracking-tight text-navy">
-                      {item.title}
+                      {t(`items.${item.id}.title`)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex flex-1 flex-col">
                     <CardDescription className="flex-1 text-sm leading-relaxed text-navy-muted">
-                      {item.description}
+                      {t(`items.${item.id}.description`)}
                     </CardDescription>
                     <motion.div
                       aria-hidden
@@ -162,17 +161,16 @@ export function AboutReasons() {
 }
 
 function ReasonActions() {
+  const t = useTranslations("About.reasons");
+
   return (
     <>
       <Button
         asChild
         size="lg"
-        className="h-12 gap-2 bg-primary px-6 text-base text-white hover:bg-primary/90"
+        className="h-12 bg-primary px-6 text-base text-white hover:bg-primary/90"
       >
-        <a href="#booking">
-          Book Now
-          <ArrowRight className="size-5" />
-        </a>
+        <a href="#booking">{t("bookNow")}</a>
       </Button>
       <Button
         asChild
@@ -180,7 +178,7 @@ function ReasonActions() {
         variant="outline"
         className="h-12 border-navy/20 px-6 text-base text-navy"
       >
-        <Link href="/hotels">Our hotels</Link>
+        <Link href="/hotels">{t("ourHotels")}</Link>
       </Button>
     </>
   );

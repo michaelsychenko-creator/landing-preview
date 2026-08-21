@@ -1,0 +1,446 @@
+{
+  "Metadata": {
+    "homeTitle": "VLC Apart — Apartamentos que se sienten como en casa",
+    "homeDescription": "Una red de apartahoteles premium en el corazón de Valencia. Perfectos para turistas, familias y grupos grandes de hasta 12 personas.",
+    "aboutTitle": "Sobre nosotros - VLC Apart",
+    "aboutDescription": "Somos VLC Apart. Tres apartahoteles en Valencia. Tres barrios. Una idea: ofrecer a cada huésped un lugar que se sienta como en casa, no solo una habitación para pasar la noche.",
+    "hotelsTitle": "Hoteles - VLC Apart",
+    "hotelsDescription": "Tres apartahoteles en el corazón de Valencia — cada uno en su barrio, cada uno con su propio carácter. Apartamentos totalmente equipados para familias, grupos y equipos en remoto.",
+    "galleryTitle": "Galería - VLC Apart",
+    "galleryDescription": "Explora nuestros apartamentos, zonas comunes y los barrios que hacen único cada establecimiento de VLC Apart. Cada espacio está pensado para el confort — echa un vistazo antes de reservar",
+    "contactsTitle": "Contacto - VLC Apart",
+    "contactsDescription": "Ponte en contacto con VLC Apart. Tres apartahoteles en Valencia — reservas por teléfono, correo o en el propio establecimiento.",
+    "faqTitle": "Preguntas frecuentes - VLC Apart",
+    "faqDescription": "Preguntas frecuentes sobre tu estancia en VLC Apart — check-in, aparcamiento, mascotas, Wi-Fi, cocinas, cancelación y más.",
+    "notFoundTitle": "Página no encontrada - VLC Apart"
+  },
+  "Nav": {
+    "main": "Inicio",
+    "about": "Sobre nosotros",
+    "hotels": "Hoteles",
+    "offers": "Ofertas",
+    "gallery": "Galería",
+    "contacts": "Contacto",
+    "faq": "FAQ"
+  },
+  "Header": {
+    "chat": "Chat",
+    "chatWithUs": "Chatea con nosotros",
+    "openMenu": "Abrir menú"
+  },
+  "Footer": {
+    "tagline": "Una red de apartahoteles premium en Valencia. Tu casa lejos de casa — con todas las comodidades y sin concesiones.",
+    "explore": "Explorar",
+    "bookAndFollow": "Reservar y seguir",
+    "bookNow": "Reservar ahora",
+    "copyright": "© {year}, VLC Apart. Todos los derechos reservados",
+    "privacy": "Privacidad",
+    "terms": "Términos y condiciones",
+    "cookies": "Cookies",
+    "paymentsAlt": "Métodos de pago aceptados"
+  },
+  "LanguageSwitcher": {
+    "label": "Cambiar idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "Hero": {
+    "eyebrow": "• Valencia, España",
+    "title": "Apartamentos que<nl></nl>se sienten como en <home>casa</home>",
+    "body": "Una red de apartahoteles premium en el corazón de Valencia. Perfectos para turistas, familias y grupos grandes de hasta 12 personas.",
+    "viewHotels": "Ver hoteles",
+    "aboutUs": "Sobre nosotros",
+    "locations": "Ubicaciones en Valencia",
+    "capacity": "pers. capacidad máx.",
+    "discount": "Descuento por reserva directa",
+    "rating": "Valoración media",
+    "imageAlt": "Loft moderno de VLC Apart con camas individuales y altillo"
+  },
+  "Booking": {
+    "aparthotel": "Aparthotel",
+    "dates": "Fechas",
+    "adults": "Adultos",
+    "children": "Niños",
+    "bookNow": "Reservar ahora",
+    "book": "Reservar",
+    "selectDates": "Seleccionar fechas",
+    "checkout": "Salida",
+    "selectHotel": "Seleccionar hotel",
+    "sheetTitle": "Reserva tu estancia",
+    "hotels": {
+      "all": "Todos los aparthoteles",
+      "gayano": "VLC Apart Gayano"
+    },
+    "errors": {
+      "selectDates": "Selecciona las fechas de entrada y salida.",
+      "checkoutAfter": "La fecha de salida debe ser posterior a la de entrada.",
+      "engineLoading": "El motor de reservas se está cargando..."
+    }
+  },
+  "WhyChooseUs": {
+    "eyebrow": "Por qué elegirnos",
+    "title": "Más que un hotel",
+    "body": "Un apartahotel combina el confort de tu propio piso con un servicio de nivel hotelero — perfecto para cualquier duración de estancia",
+    "bookNow": "Reservar ahora",
+    "aboutUs": "Sobre nosotros"
+  },
+  "Amenities": {
+    "kitchen": {
+      "title": "Cocina totalmente equipada",
+      "description": "Nevera, vitrocerámica, lavavajillas y todo lo necesario para cocinar en casa"
+    },
+    "wifi": {
+      "title": "Wi-Fi de alta velocidad gratis",
+      "description": "Internet de gigabit en cada apartamento — para trabajar y para el ocio"
+    },
+    "location": {
+      "title": "Cerca del mar y del centro",
+      "description": "Todas nuestras ubicaciones están a poca distancia de restaurantes y lugares emblemáticos"
+    },
+    "checkin": {
+      "title": "Check-in online 24/7",
+      "description": "Llega a cualquier hora sin esperar en recepción — por app o código de puerta"
+    },
+    "laundry": {
+      "title": "Lavandería",
+      "description": "Lavadora y secadora en el apartamento — ropa limpia sin salir de casa"
+    },
+    "spacious": {
+      "title": "Apartamentos espaciosos",
+      "description": "Distribuciones generosas — hasta 12 personas en un solo apartamento. Ideal para grupos y familias"
+    },
+    "support": {
+      "title": "Atención 24/7",
+      "description": "Chatbot y agente en directo siempre disponibles para resolver cualquier incidencia"
+    },
+    "parking": {
+      "title": "Aparcamiento y transfers",
+      "description": "Aparcamiento gratuito en los alrededores y transfer desde/hasta el aeropuerto de Valencia"
+    }
+  },
+  "Hotels": {
+    "sectionEyebrow": "Nuestros hoteles",
+    "sectionTitle": "Encuentra tu estancia perfecta",
+    "from": "desde",
+    "perNight": "/noche",
+    "viewAll": "Ver todos los hoteles",
+    "learnMoreAbout": "Más información sobre {name}",
+    "learnMore": "Saber más",
+    "upToGuests": "Hasta {count} huéspedes",
+    "viewOnMap": "Ver en el mapa",
+    "mapDialogBody": "Abre Google Maps para ver el barrio de este aparthotel y las conexiones cercanas.",
+    "openInGoogleMaps": "Abrir en Google Maps",
+    "bookNow": "Reservar ahora",
+    "photoAlt": "{name} foto {n}",
+    "goToSlide": "Ir a la diapositiva {n}",
+    "hero": {
+      "eyebrow": "Nuestros hoteles",
+      "titleLead": "Encuentra tu estancia perfecta",
+      "titleAccent": "en Valencia",
+      "body": "Tres apartahoteles en el corazón de Valencia — cada uno en su barrio, cada uno con su propio carácter. Tanto si viajas en familia, con un grupo de amigos o con un equipo en remoto, tenemos el espacio adecuado para tu estancia. Todos los apartamentos están totalmente equipados, son espaciosos y están pensados para el confort — desde un fin de semana hasta una estancia larga.",
+      "cta": "Sobre nosotros",
+      "imageAlt": "Interior de un apartamento de VLC Apart",
+      "capacityLabel": "capacidad máx.",
+      "capacityUnit": "PERS",
+      "discountLabel": "Descuento por reserva directa"
+    },
+    "items": {
+      "gayano": {
+        "description": "Una estancia acogedora en un barrio residencial con vida, buenas conexiones de tranvía y autobús y un ambiente local auténtico",
+        "longDescription": "Una estancia acogedora en un barrio vivo y auténtico al norte del centro de Valencia. Apartamentos con capacidad para hasta 12 huéspedes y buenas conexiones de tranvía y autobús para explorar la ciudad, con mercados, cafeterías y parques a un paso. Perfecto para familias, grupos y quien quiera vivir la Valencia de verdad",
+        "tags": "Conexiones urbanas · Ambiente residencial · Vida local"
+      },
+      "cortina": {
+        "description": "Barrio tranquilo y familiar, con línea de tranvía cerca y uno de los parques más grandes de Valencia a la puerta",
+        "longDescription": "En un barrio tranquilo y familiar, a pocos minutos de la línea 4 de tranvía. Apartamentos con capacidad para hasta 8 huéspedes y uno de los mayores espacios verdes de Valencia — el Parque de Benicalap — a la puerta, ideal para familias y estancias largas. Una base tranquila con fácil acceso al centro y a la playa",
+        "tags": "Acceso en tranvía · Junto al parque · Zona familiar"
+      },
+      "encarna": {
+        "description": "Calles residenciales auténticas, cafeterías de barrio y fácil acceso en bici o tranvía a los lugares emblemáticos de Valencia — sin el bullicio turístico",
+        "longDescription": "Calles residenciales auténticas, cafeterías de barrio y un ambiente calmado lejos de las aglomeraciones turísticas. Apartamentos con capacidad para hasta 4 huéspedes y fácil acceso en bici o tranvía a los lugares emblemáticos de Valencia: una gran opción para quien busca confort y una experiencia local genuina — sin el bullicio",
+        "tags": "Calles tranquilas · Barrio auténtico · Ideal en bici"
+      }
+    }
+  },
+  "Advantage": {
+    "eyebrow": "La ventaja única de VLC Apart",
+    "title": "Alojar a grupos grandes juntos",
+    "body": "Somos el único lugar en Valencia que ofrece apartamentos para hasta 12 personas en un mismo espacio — perfecto para familias, viajes de empresa y grupos turísticos",
+    "bookNow": "Reservar ahora",
+    "guestsInApartment": "huéspedes en un apartamento",
+    "maxCapacity": "Capacidad máxima en Valencia",
+    "imageAlt": "Salón de un apartamento para grupos grandes",
+    "points": {
+      "corporate": {
+        "title": "Retiros de empresa",
+        "description": "Un espacio completo para tu equipo, con zonas de trabajo y salas de reunión"
+      },
+      "family": {
+        "title": "Vacaciones en familia numerosa",
+        "description": "Todos bajo el mismo techo — sin pasillos de hotel entre habitaciones"
+      },
+      "tours": {
+        "title": "Grupos y agencias de viajes",
+        "description": "Tarifas y condiciones especiales para turoperadores y agencias de viajes"
+      }
+    },
+    "tags": {
+      "corporate": "Empresas",
+      "families": "Familias",
+      "tourGroups": "Grupos",
+      "celebrations": "Celebraciones"
+    }
+  },
+  "Offers": {
+    "eyebrow": "Ofertas y promociones",
+    "title": "Más valor con la reserva directa",
+    "items": {
+      "direct": {
+        "title": "Reserva directa",
+        "description": "Reserva directamente en nuestra web y obtén el mejor precio garantizado. Sin comisiones de intermediarios",
+        "cta": "Reservar ahora"
+      },
+      "longStay": {
+        "title": "Estancia larga",
+        "description": "Reserva 30 días o más y consigue un 30% de descuento especial. Perfecto para teletrabajo o un verano en Valencia",
+        "cta": "Reservar ahora"
+      }
+    },
+    "event": {
+      "eyebrow": "• Evento en Valencia",
+      "title": "Gran Feria de València",
+      "description": "La mayor celebración de verano de Valencia — todo el mes de julio. Reserva tu apartamento con antelación y ahorra un 15%",
+      "discountNote": "con reserva anticipada",
+      "cta": "Reservar para la fiesta"
+    }
+  },
+  "Reviews": {
+    "eyebrow": "Opiniones de huéspedes",
+    "title": "Lo que dicen nuestros huéspedes",
+    "basedOn": "basado en 248 opiniones",
+    "starsLabel": "5 estrellas",
+    "previous": "Diapositiva anterior",
+    "next": "Diapositiva siguiente",
+    "items": {
+      "olena": {
+        "quote": "¡Un lugar maravilloso para una familia grande! Llegamos 9 personas y teníamos espacio de sobra. La cocina está totalmente equipada y las vistas a la ciudad son increíbles.",
+        "meta": "Kyiv, Ucrania · julio 2024"
+      },
+      "marcus": {
+        "quote": "Perfecto para el offsite de nuestro equipo. Podíamos trabajar, cocinar juntos y sentirnos como en casa. El check-in fue fluido y el soporte respondió en minutos.",
+        "meta": "Berlín, Alemania · marzo 2025"
+      },
+      "sofia": {
+        "quote": "Espacioso, limpio y justo donde necesitábamos estar. Reservar directo nos ahorró dinero y el apartamento encajó cómodamente a todo el grupo.",
+        "meta": "Madrid, España · junio 2025"
+      },
+      "tomas": {
+        "quote": "Nos quedamos una semana con amigos y lo disfrutamos todo. Edificio tranquilo, Wi-Fi rápido y la terraza hizo especiales las tardes.",
+        "meta": "Praga, Chequia · septiembre 2024"
+      },
+      "amelie": {
+        "quote": "Exactamente lo que necesitábamos para una escapada de fin de semana. El apartamento estaba impecable, la cama excelente y la comunicación clara de principio a fin.",
+        "meta": "Lyon, Francia · enero 2025"
+      },
+      "james": {
+        "quote": "Estupenda ubicación para explorar la ciudad a pie. Tener cocina completa nos permitió cocinar después de días largos fuera — se sentía como un hogar de verdad.",
+        "meta": "Londres, Reino Unido · abril 2025"
+      }
+    }
+  },
+  "Cta": {
+    "eyebrow": "¿Listo para viajar?",
+    "title": "Reserva hoy y ahorra en tu estancia",
+    "body": "Mejor precio garantizado en reserva directa",
+    "findApartment": "Buscar un apartamento",
+    "contactUs": "Contacto"
+  },
+  "About": {
+    "hero": {
+      "eyebrow": "Nuestra historia",
+      "title": "Sobre nosotros",
+      "paragraph1": "Somos VLC Apart. Tres apartahoteles en Valencia. Tres barrios. Una idea: ofrecer a cada huésped un lugar que se sienta como en casa, no solo una habitación para pasar la noche.",
+      "paragraph2": "VLC Apart nació para quienes quieren más que una estancia de hotel estándar: espacio para vivir, cocinar, trabajar y explorar — a su ritmo, en un barrio valenciano de verdad",
+      "cta": "Nuestros hoteles",
+      "imageAlt": "Interior de un apartamento de VLC Apart",
+      "locations": "Ubicaciones en Valencia",
+      "rating": "Valoración media"
+    },
+    "reasons": {
+      "eyebrow": "Por qué elegirnos",
+      "title": "Más que un hotel",
+      "body": "Un apartahotel combina el confort de tu propio piso con un servicio de nivel hotelero — perfecto para cualquier duración de estancia",
+      "bookNow": "Reservar ahora",
+      "ourHotels": "Nuestros hoteles",
+      "items": {
+        "apartments": {
+          "title": "Apartamentos totalmente equipados",
+          "description": "Cada apartamento incluye cocina completa, lavavajillas, Smart TV y todo lo necesario para una estancia cómoda — tanto si te quedas unos días como varios meses"
+        },
+        "locations": {
+          "title": "Tres ubicaciones en Valencia",
+          "description": "Gayano, Cortina y Encarna — cada uno en un barrio distinto, cada uno con su propio carácter. Elige el que encaje con tu estancia. Todos están cerca del centro y de la playa en tranvía o bici."
+        },
+        "direct": {
+          "title": "Ventaja de la reserva directa",
+          "description": "Reserva directamente en nuestra web y obtén la mejor tarifa disponible. Sin cargos ocultos ni intermediarios"
+        },
+        "groupSize": {
+          "title": "Para cualquier tamaño de grupo",
+          "description": "Desde un viajero solo hasta un grupo de 12 — tenemos el apartamento adecuado para cada tamaño y cada necesidad"
+        },
+        "local": {
+          "title": "Locales de corazón",
+          "description": "Nuestros apartahoteles están en barrios residenciales donde ocurre la Valencia real — mercados, cafeterías de esquina y conexiones de tranvía a todas partes"
+        },
+        "onsite": {
+          "title": "Todo en el mismo sitio",
+          "description": "Desde una cocina totalmente equipada y lavandería hasta un gimnasio, Lobby bar-Market y taquillas — todo lo que necesitas está donde te alojas"
+        }
+      }
+    },
+    "values": {
+      "eyebrow": "En qué creemos",
+      "title": "Confort, honestidad, experiencia local",
+      "paragraph1": "Creemos que dónde te alojas define cómo vives una ciudad. Por eso cada establecimiento de VLC Apart está pensado para ofrecer confort auténtico en un barrio auténtico — no una burbuja turística, sino un lugar real donde instalarte y sentirte a gusto.",
+      "paragraph2": "Valoramos la transparencia en los precios, la calidad en cada detalle y el calor en cada trato. Nuestro objetivo es sencillo: que tu estancia en Valencia se sienta fácil y memorable",
+      "galleryAlt": "Interior de un aparthotel de VLC Apart",
+      "previous": "Foto anterior",
+      "next": "Foto siguiente"
+    },
+    "welcome": {
+      "eyebrow": "A quién damos la bienvenida",
+      "title": "Un lugar para todos",
+      "ratingNote": "basado en 248 opiniones",
+      "audiences": {
+        "families": {
+          "title": "Familias",
+          "description": "Apartamentos espaciosos con cocinas totalmente equipadas hacen fáciles y asequibles las estancias en familia. Sitio para todos — del estudio al apartamento de 12 huéspedes"
+        },
+        "groups": {
+          "title": "Grupos y equipos",
+          "description": "¿Viajas con un grupo grande o un equipo en remoto? Nuestros apartamentos más grandes alojan hasta 12 huéspedes, con todo el espacio para trabajar, descansar y estar juntos"
+        },
+        "longStay": {
+          "title": "Huéspedes de larga estancia",
+          "description": "¿Piensas quedarte un mes o más? Ofrecemos tarifas especiales de larga estancia y todas las comodidades de casa — para que te centres en la vida en Valencia, no en la logística"
+        },
+        "solo": {
+          "title": "Viajeros solos y parejas",
+          "description": "Una base tranquila y bien equipada en un barrio de verdad — todo lo que necesitas, nada que no"
+        }
+      }
+    },
+    "hotelsHeading": {
+      "eyebrow": "Nuestros hoteles",
+      "title": "Tres aparthoteles, un mismo estándar de calidad"
+    }
+  },
+  "Gallery": {
+    "home": "Inicio",
+    "eyebrow": "Nuestros espacios",
+    "title": "Galería",
+    "body": "Explora nuestros apartamentos, zonas comunes y los barrios que hacen único cada establecimiento de VLC Apart. Cada espacio está pensado para el confort — echa un vistazo antes de reservar",
+    "browse": "Explorar",
+    "photosByProperty": "Fotos por establecimiento",
+    "filterAria": "Filtrar la galería por establecimiento",
+    "previous": "Foto anterior",
+    "next": "Foto siguiente",
+    "galleryPhoto": "Foto de la galería",
+    "openPhoto": "Abrir {alt}",
+    "filters": {
+      "all": "Todos",
+      "gayano": "Gayano",
+      "cortina": "Cortina",
+      "encarna": "Encarna"
+    },
+    "categories": {
+      "apartment": "Apartamento",
+      "common": "Zona común",
+      "neighbourhood": "Barrio"
+    },
+    "photos": {
+      "gayano-living": "Salón luminoso en VLC Apart Gayano",
+      "gayano-family": "Interior familiar en VLC Apart Gayano",
+      "gayano-group": "Zona de estar abierta para grupos en VLC Apart Gayano",
+      "gayano-common": "Espacio compartido para grupos grandes en VLC Apart Gayano",
+      "gayano-neighbourhood": "Barrio alrededor de VLC Apart Gayano en Rascanya",
+      "cortina-exterior": "Edificio y entorno de VLC Apart Cortina",
+      "cortina-interior": "Interior del apartamento en VLC Apart Cortina",
+      "cortina-stay": "Detalles de una estancia cómoda en VLC Apart Cortina",
+      "cortina-long-stay": "Distribución de apartamento de larga estancia en VLC Apart Cortina",
+      "cortina-location": "Barrio de Benicalap cerca de VLC Apart Cortina",
+      "cortina-common": "Zonas comunes y entorno de VLC Apart Cortina",
+      "encarna-building": "Edificio de VLC Apart Encarna en Benicalap",
+      "encarna-couple": "Interior tranquilo del apartamento en VLC Apart Encarna",
+      "encarna-stay": "Apartamento amueblado en VLC Apart Encarna",
+      "encarna-street": "Calles residenciales alrededor de VLC Apart Encarna",
+      "encarna-common": "Interiores compartidos en VLC Apart Encarna"
+    }
+  },
+  "Contacts": {
+    "eyebrow": "Contacta con nosotros",
+    "title": "Contacto",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "location": "Ubicación",
+    "reception": "Reservas",
+    "country": "España",
+    "getDirectionsMaps": "Cómo llegar en Google Maps",
+    "viewOnMap": "Ver en el mapa",
+    "mapTitle": "Mapa de {name}",
+    "openInGoogleMaps": "Abrir en Google Maps",
+    "getDirections": "Cómo llegar"
+  },
+  "Faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "FAQ",
+    "items": {
+      "check-in": {
+        "question": "¿Cuál es el horario de check-in y check-out?",
+        "answer": "El check-in es a partir de las 16:00 y el check-out hasta las 12:00. El check-in anticipado o el check-out tardío está disponible bajo petición y puede tener un cargo adicional."
+      },
+      "self-check-in": {
+        "question": "¿Hay self check-in?",
+        "answer": "Sí. El self check-in está disponible en cualquier momento en los tres establecimientos. En VLC Apart Cortina, la recepción está atendida de 8:00 a 24:00 — el self check-in está disponible de 24:00 a 8:00. En VLC Apart Gayano y VLC Apart Encarna, la recepción está disponible las 24 horas."
+      },
+      "parking": {
+        "question": "¿Hay aparcamiento?",
+        "answer": "Hay aparcamiento cerca. Contacta con nosotros con antelación para más detalles sobre ubicación y disponibilidad."
+      },
+      "pets": {
+        "question": "¿Se admiten mascotas?",
+        "answer": "Sí, somos pet friendly. Se admiten hasta 2 mascotas por apartamento, con un peso máximo de 12 kg cada una."
+      },
+      "wifi": {
+        "question": "¿El Wi-Fi está incluido?",
+        "answer": "Sí, el Wi-Fi de alta velocidad está incluido en todos los apartamentos sin cargo adicional."
+      },
+      "kitchen": {
+        "question": "¿Los apartamentos tienen cocina?",
+        "answer": "Sí, todos los apartamentos incluyen cocina totalmente equipada con nevera, vitrocerámica, lavavajillas, hervidor, cafetera, microondas y todo el menaje necesario."
+      },
+      "minimum-stay": {
+        "question": "¿Hay una estancia mínima?",
+        "answer": "No hay estancia mínima en las reservas estándar. Para estancias largas de 30 noches o más aplican tarifas especiales — contáctanos para más información."
+      },
+      "direct-booking": {
+        "question": "¿Puedo reservar directamente en la web?",
+        "answer": "Sí, y te lo recomendamos. Reservar directamente en nuestra web garantiza la mejor tarifa disponible, sin cargos ni comisiones adicionales."
+      },
+      "cancellation": {
+        "question": "¿Cuál es la política de cancelación?",
+        "answer": "En reservas de un solo apartamento, la cancelación gratuita está disponible hasta 72 horas antes de la llegada. En reservas de grupo de más de un apartamento, la cancelación gratuita aplica hasta 7 días antes de la llegada. Las cancelaciones posteriores a estos plazos se facturarán al 50% del importe total de la reserva."
+      },
+      "capacity": {
+        "question": "¿Cuántos huéspedes caben en el apartamento más grande?",
+        "answer": "Nuestro apartamento más grande — el Loft — puede alojar hasta 12 huéspedes, ideal para estancias de grupos grandes o viajes de equipo."
+      }
+    }
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "body": "La página que buscas no existe o se ha movido.",
+    "home": "Volver al inicio"
+  }
+}
